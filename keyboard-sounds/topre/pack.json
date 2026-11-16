@@ -1,0 +1,147 @@
+{
+  "author" : "grcekh",
+  "formatVersion" : 1,
+  "groups" : {
+    "alpha" : {
+      "down" : {
+        "hard" : [
+          "key-hard-1.wav",
+          "key-hard-2.wav",
+          "key-hard-3.wav",
+          "key-hard-4.wav",
+          "key-hard-5.wav",
+          "key-hard-6.wav"
+        ],
+        "medium" : [
+          "key-medium-1.wav",
+          "key-medium-2.wav",
+          "key-medium-3.wav",
+          "key-medium-4.wav",
+          "key-medium-5.wav",
+          "key-medium-6.wav"
+        ],
+        "slam" : [
+          "key-slam-1.wav",
+          "key-slam-2.wav",
+          "key-slam-3.wav",
+          "key-slam-4.wav",
+          "key-slam-5.wav",
+          "key-slam-6.wav"
+        ],
+        "soft" : [
+          "key-soft-1.wav",
+          "key-soft-2.wav",
+          "key-soft-3.wav",
+          "key-soft-4.wav",
+          "key-soft-5.wav",
+          "key-soft-6.wav"
+        ]
+      },
+      "up" : [
+        "up-1.wav",
+        "up-2.wav",
+        "up-3.wav"
+      ]
+    },
+    "backspace" : {
+      "down" : {
+        "hard" : [
+          "wide-hard-1.wav"
+        ],
+        "medium" : [
+          "wide-medium-1.wav"
+        ],
+        "slam" : [
+          "wide-slam-1.wav"
+        ]
+      },
+      "up" : [
+        "up-1.wav",
+        "up-2.wav",
+        "up-3.wav"
+      ]
+    },
+    "enter" : {
+      "down" : {
+        "hard" : [
+          "wide-hard-1.wav"
+        ],
+        "medium" : [
+          "wide-medium-1.wav"
+        ],
+        "slam" : [
+          "wide-slam-1.wav"
+        ]
+      },
+      "up" : [
+        "up-1.wav",
+        "up-2.wav",
+        "up-3.wav"
+      ]
+    },
+    "modifier" : {
+      "down" : {
+        "hard" : [
+          "key-hard-1.wav",
+          "key-hard-2.wav",
+          "key-hard-3.wav",
+          "key-hard-4.wav",
+          "key-hard-5.wav",
+          "key-hard-6.wav"
+        ],
+        "medium" : [
+          "key-medium-1.wav",
+          "key-medium-2.wav",
+          "key-medium-3.wav",
+          "key-medium-4.wav",
+          "key-medium-5.wav",
+          "key-medium-6.wav"
+        ],
+        "slam" : [
+          "key-slam-1.wav",
+          "key-slam-2.wav",
+          "key-slam-3.wav",
+          "key-slam-4.wav",
+          "key-slam-5.wav",
+          "key-slam-6.wav"
+        ],
+        "soft" : [
+          "key-soft-1.wav",
+          "key-soft-2.wav",
+          "key-soft-3.wav",
+          "key-soft-4.wav",
+          "key-soft-5.wav",
+          "key-soft-6.wav"
+        ]
+      },
+      "up" : [
+        "up-1.wav",
+        "up-2.wav",
+        "up-3.wav"
+      ]
+    },
+    "space" : {
+      "down" : {
+        "hard" : [
+          "wide-hard-1.wav"
+        ],
+        "medium" : [
+          "wide-medium-1.wav"
+        ],
+        "slam" : [
+          "wide-slam-1.wav"
+        ]
+      },
+      "up" : [
+        "up-1.wav",
+        "up-2.wav",
+        "up-3.wav"
+      ]
+    }
+  },
+  "id" : "topre",
+  "kind" : "Electro-capacitive",
+  "license" : "Recordings: \"Keyboard Typing 2 (HHKB, Topre)\" by grcekh, https://freesound.org/s/546033/ (CC0 1.0). Sliced and leveled for Keyslam.",
+  "name" : "Topre",
+  "summary" : "A Happy Hacking Keyboard with Topre switches: deep, rounded thock."
+}
