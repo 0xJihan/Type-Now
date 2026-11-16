@@ -1,0 +1,80 @@
+{
+  "author" : "secretmojo",
+  "formatVersion" : 1,
+  "groups" : {
+    "alpha" : {
+      "down" : {
+        "hard" : [
+          "key-hard-1.wav",
+          "key-hard-2.wav",
+          "key-hard-3.wav",
+          "key-hard-4.wav",
+          "key-hard-5.wav",
+          "key-hard-6.wav"
+        ],
+        "medium" : [
+          "key-medium-1.wav"
+        ],
+        "slam" : [
+          "key-slam-1.wav",
+          "key-slam-2.wav",
+          "key-slam-3.wav",
+          "key-slam-4.wav",
+          "key-slam-5.wav",
+          "key-slam-6.wav"
+        ],
+        "soft" : [
+          "key-soft-1.wav",
+          "key-soft-2.wav",
+          "key-soft-3.wav",
+          "key-soft-4.wav",
+          "key-soft-5.wav",
+          "key-soft-6.wav"
+        ]
+      }
+    },
+    "enter" : {
+      "down" : {
+        "medium" : [
+          "enter-1.wav"
+        ]
+      }
+    },
+    "modifier" : {
+      "down" : {
+        "hard" : [
+          "key-hard-1.wav",
+          "key-hard-2.wav",
+          "key-hard-3.wav",
+          "key-hard-4.wav",
+          "key-hard-5.wav",
+          "key-hard-6.wav"
+        ],
+        "medium" : [
+          "key-medium-1.wav"
+        ],
+        "slam" : [
+          "key-slam-1.wav",
+          "key-slam-2.wav",
+          "key-slam-3.wav",
+          "key-slam-4.wav",
+          "key-slam-5.wav",
+          "key-slam-6.wav"
+        ],
+        "soft" : [
+          "key-soft-1.wav",
+          "key-soft-2.wav",
+          "key-soft-3.wav",
+          "key-soft-4.wav",
+          "key-soft-5.wav",
+          "key-soft-6.wav"
+        ]
+      }
+    }
+  },
+  "id" : "selectric",
+  "kind" : "Typewriter",
+  "license" : "Recordings: \"Typewriter, IBM Selectric II\" by secretmojo, https://freesound.org/s/224012/ (CC0 1.0); \"Typewriter bell & carriage reset\" by knufds, https://freesound.org/s/345955/ (CC0 1.0). Sliced and leveled for Keyslam.",
+  "name" : "Selectric",
+  "summary" : "IBM Selectric II: the electric typeball strike, with a bell on Return."
+}

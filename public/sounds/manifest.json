@@ -1,0 +1,2658 @@
+[
+  {
+    "id": "gateron-red",
+    "name": "Gateron Red",
+    "kind": "Linear",
+    "author": "IRF1010N",
+    "summary": "Gateron Red switches on a GMMK TKL: dark, smooth and a little hollow.",
+    "license": "Recordings: \"Typing on a mechanical keyboard\" by IRF1010N, https://freesound.org/s/583085/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "laptop",
+    "name": "Laptop",
+    "kind": "Butterfly",
+    "author": "khenshom",
+    "summary": "A 2018 MacBook Pro's butterfly keys, close-miked: soft and subtle.",
+    "license": "Recordings: \"Computer keyboard typing and keystrokes - Apple MacBook Pro 2018\" by khenshom, https://freesound.org/s/565645/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "leopold",
+    "name": "Leopold",
+    "kind": "Tactile",
+    "author": "stu556",
+    "summary": "Leopold FC660M, MX Browns and PBT caps, close-miked: crisp and detailed.",
+    "license": "Recordings: \"Mechanical Keyboard Typing (Treble Version)\" by stu556, https://freesound.org/s/450282/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "model-f",
+    "name": "Model F",
+    "kind": "Buckling spring",
+    "author": "Fractal_",
+    "summary": "An early-1980s IBM Model F XT: buckling springs with a loud, deep clack.",
+    "license": "Recordings: \"IBM Model F keyboard typing\" by Fractal_, https://freesound.org/s/500430/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "mx-black",
+    "name": "MX Black",
+    "kind": "Linear",
+    "author": "ujonathan",
+    "summary": "Cherry MX Black switches on a Leopold FC980M PD: heavy, smooth and full-bodied.",
+    "license": "Recordings: \"leopold fc980m pd cherry mx black.flac\" by ujonathan, https://freesound.org/s/628325/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "mx-blue",
+    "name": "MX Blue",
+    "kind": "Clicky",
+    "author": "EricsSoundschmiede",
+    "summary": "Cherry MX Blue switches: a crisp click on every press.",
+    "license": "Recordings: \"Mechanical Keyboard 'Cherry Blue Switches'\" by EricsSoundschmiede, https://freesound.org/s/382057/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "mx-brown",
+    "name": "MX Brown",
+    "kind": "Tactile",
+    "author": "majod",
+    "summary": "Cherry MX Brown switches: a soft bump and a muted clack.",
+    "license": "Recordings: \"Mechanical Keyboard Cherry MX Brown\" by majod, https://freesound.org/s/400167/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "mx-red",
+    "name": "MX Red",
+    "kind": "Linear",
+    "author": "handygaber",
+    "summary": "Cherry MX Red switches on a Corsair K95: smooth, light and quick.",
+    "license": "Recordings: \"Keyboard clicking typing Cherry Red Mechanical\" by handygaber, https://freesound.org/s/499773/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "olivetti",
+    "name": "Olivetti",
+    "kind": "Typewriter",
+    "author": "keithpeter",
+    "summary": "Olivetti Lettera 22: a manual portable's snappy typebars and a bell.",
+    "license": "Recordings: \"typewriter-olivetti-lettra-22.wav\" by keithpeter, https://freesound.org/s/123344/ (CC0 1.0); \"Typewriter ding_near_mono.wav\" by _stubb, https://freesound.org/s/406243/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        }
+      },
+      "enter": {
+        "down": {
+          "medium": [
+            "enter-1.wav"
+          ]
+        }
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "rainy-75",
+    "name": "Rainy 75",
+    "kind": "Mechanical",
+    "author": "Techrul",
+    "summary": "A Rainy 75 keyboard (switches unstated): a dark, creamy thock.",
+    "license": "Recordings: \"Typing on a rainy 75\" by Techrul, https://freesound.org/s/815614/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "selectric",
+    "name": "Selectric",
+    "kind": "Typewriter",
+    "author": "secretmojo",
+    "summary": "IBM Selectric II: the electric typeball strike, with a bell on Return.",
+    "license": "Recordings: \"Typewriter, IBM Selectric II\" by secretmojo, https://freesound.org/s/224012/ (CC0 1.0); \"Typewriter bell & carriage reset\" by knufds, https://freesound.org/s/345955/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        }
+      },
+      "enter": {
+        "down": {
+          "medium": [
+            "enter-1.wav"
+          ]
+        }
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "topre",
+    "name": "Topre",
+    "kind": "Electro-capacitive",
+    "author": "grcekh",
+    "summary": "A Happy Hacking Keyboard with Topre switches: deep, rounded thock.",
+    "license": "Recordings: \"Keyboard Typing 2 (HHKB, Topre)\" by grcekh, https://freesound.org/s/546033/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "unicomp",
+    "name": "Unicomp",
+    "kind": "Buckling spring",
+    "author": "SamsterBirdies",
+    "summary": "A Unicomp buckling-spring keyboard, the Model M design: a big, springy click-clack.",
+    "license": "Recordings: \"Typing on a keyboard\" by SamsterBirdies, https://freesound.org/s/489423/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "vintage-technics",
+    "name": "Vintage Technics",
+    "kind": "Linear, modded",
+    "author": "zrrion",
+    "summary": "An old Technics board with waxed Gateron Yellows: chunky and old-school.",
+    "license": "Recordings: \"Keyboard typing sounds: Unidentified Technics keyboard\" by zrrion, https://freesound.org/s/665075/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav",
+          "up-6.wav"
+        ]
+      }
+    }
+  },
+  {
+    "id": "whitefox",
+    "name": "WhiteFox",
+    "kind": "Tactile",
+    "author": "grcekh",
+    "summary": "A WhiteFox board with Hako Violet switches: punchy, with a long ring.",
+    "license": "Recordings: \"Keyboard Typing 10 (WhiteFox, Mechanical)\" by grcekh, https://freesound.org/s/546167/ (CC0 1.0). Sliced and leveled for Keyslam.",
+    "groups": {
+      "alpha": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "backspace": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "enter": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "modifier": {
+        "down": {
+          "hard": [
+            "key-hard-1.wav",
+            "key-hard-2.wav",
+            "key-hard-3.wav",
+            "key-hard-4.wav",
+            "key-hard-5.wav",
+            "key-hard-6.wav"
+          ],
+          "medium": [
+            "key-medium-1.wav",
+            "key-medium-2.wav",
+            "key-medium-3.wav",
+            "key-medium-4.wav",
+            "key-medium-5.wav",
+            "key-medium-6.wav"
+          ],
+          "slam": [
+            "key-slam-1.wav",
+            "key-slam-2.wav",
+            "key-slam-3.wav",
+            "key-slam-4.wav",
+            "key-slam-5.wav",
+            "key-slam-6.wav"
+          ],
+          "soft": [
+            "key-soft-1.wav",
+            "key-soft-2.wav",
+            "key-soft-3.wav",
+            "key-soft-4.wav",
+            "key-soft-5.wav",
+            "key-soft-6.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      },
+      "space": {
+        "down": {
+          "hard": [
+            "wide-hard-1.wav",
+            "wide-hard-2.wav",
+            "wide-hard-3.wav",
+            "wide-hard-4.wav"
+          ],
+          "medium": [
+            "wide-medium-1.wav",
+            "wide-medium-2.wav",
+            "wide-medium-3.wav",
+            "wide-medium-4.wav"
+          ],
+          "slam": [
+            "wide-slam-1.wav",
+            "wide-slam-2.wav",
+            "wide-slam-3.wav",
+            "wide-slam-4.wav"
+          ],
+          "soft": [
+            "wide-soft-1.wav",
+            "wide-soft-2.wav",
+            "wide-soft-3.wav",
+            "wide-soft-4.wav"
+          ]
+        },
+        "up": [
+          "up-1.wav",
+          "up-2.wav",
+          "up-3.wav",
+          "up-4.wav",
+          "up-5.wav"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "author" : "keithpeter",
+  "formatVersion" : 1,
+  "groups" : {
+    "alpha" : {
+      "down" : {
+        "hard" : [
+          "key-hard-1.wav",
+          "key-hard-2.wav",
+          "key-hard-3.wav",
+          "key-hard-4.wav",
+          "key-hard-5.wav",
+          "key-hard-6.wav"
+        ],
+        "medium" : [
+          "key-medium-1.wav",
+          "key-medium-2.wav",
+          "key-medium-3.wav",
+          "key-medium-4.wav",
+          "key-medium-5.wav",
+          "key-medium-6.wav"
+        ],
+        "slam" : [
+          "key-slam-1.wav",
+          "key-slam-2.wav",
+          "key-slam-3.wav",
+          "key-slam-4.wav",
+          "key-slam-5.wav",
+          "key-slam-6.wav"
+        ],
+        "soft" : [
+          "key-soft-1.wav",
+          "key-soft-2.wav",
+          "key-soft-3.wav",
+          "key-soft-4.wav",
+          "key-soft-5.wav",
+          "key-soft-6.wav"
+        ]
+      }
+    },
+    "enter" : {
+      "down" : {
+        "medium" : [
+          "enter-1.wav"
+        ]
+      }
+    },
+    "modifier" : {
+      "down" : {
+        "hard" : [
+          "key-hard-1.wav",
+          "key-hard-2.wav",
+          "key-hard-3.wav",
+          "key-hard-4.wav",
+          "key-hard-5.wav",
+          "key-hard-6.wav"
+        ],
+        "medium" : [
+          "key-medium-1.wav",
+          "key-medium-2.wav",
+          "key-medium-3.wav",
+          "key-medium-4.wav",
+          "key-medium-5.wav",
+          "key-medium-6.wav"
+        ],
+        "slam" : [
+          "key-slam-1.wav",
+          "key-slam-2.wav",
+          "key-slam-3.wav",
+          "key-slam-4.wav",
+          "key-slam-5.wav",
+          "key-slam-6.wav"
+        ],
+        "soft" : [
+          "key-soft-1.wav",
+          "key-soft-2.wav",
+          "key-soft-3.wav",
+          "key-soft-4.wav",
+          "key-soft-5.wav",
+          "key-soft-6.wav"
+        ]
+      }
+    }
+  },
+  "id" : "olivetti",
+  "kind" : "Typewriter",
+  "license" : "Recordings: \"typewriter-olivetti-lettra-22.wav\" by keithpeter, https://freesound.org/s/123344/ (CC0 1.0); \"Typewriter ding_near_mono.wav\" by _stubb, https://freesound.org/s/406243/ (CC0 1.0). Sliced and leveled for Keyslam.",
+  "name" : "Olivetti",
+  "summary" : "Olivetti Lettera 22: a manual portable's snappy typebars and a bell."
+}

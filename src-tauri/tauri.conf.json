@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "type-now",
+  "productName": "TypeNow",
   "version": "0.1.0",
   "identifier": "com.jihan.typenow",
   "build": {
@@ -12,9 +12,13 @@
   "app": {
     "windows": [
       {
-        "title": "type-now",
-        "width": 800,
-        "height": 600
+        "title": "TypeNow",
+        "width": 1050,
+        "height": 720,
+        "minWidth": 800,
+        "minHeight": 560,
+        "center": true,
+        "resizable": true
       }
     ],
     "security": {
