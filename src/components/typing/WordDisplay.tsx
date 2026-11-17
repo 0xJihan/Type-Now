@@ -53,8 +53,10 @@ const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent, domRef 
       {isCurrent && currentPos >= word.characters.length && (
         <span
           data-caret="true"
-          className="relative inline-block w-0"
-        />
+          className="relative inline-block w-0 select-none pointer-events-none"
+        >
+          &#8203;
+        </span>
       )}
 
       {/* Trailing newline indicator or responsive word gap */}
@@ -92,14 +94,18 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
     const containerRect = containerRef.current.getBoundingClientRect();
     const targetRect = target.getBoundingClientRect();
 
-    const x = targetRect.left - containerRect.left + containerRef.current.scrollLeft;
-    const y = targetRect.top - containerRect.top + containerRef.current.scrollTop;
-    const height = targetRect.height > 0 ? targetRect.height * 0.8 : 28;
+    const originX = containerRect.left + containerRef.current.clientLeft;
+    const originY = containerRect.top + containerRef.current.clientTop;
+
+    const x = targetRect.left - originX + containerRef.current.scrollLeft;
+    const y = targetRect.top - originY + containerRef.current.scrollTop;
+    const height = Math.max(20, Math.round(targetRect.height * 0.75));
+    const yOffset = Math.round((targetRect.height - height) / 2);
 
     setCaretPos({
       x: Math.round(x),
-      y: Math.round(y + (targetRect.height > 0 ? targetRect.height * 0.1 : 3)),
-      height: Math.round(height),
+      y: Math.round(y + yOffset),
+      height,
       visible: true,
     });
   };
@@ -145,10 +151,10 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
       ref={containerRef}
       className="relative flex flex-wrap items-center content-start gap-y-3 md:gap-y-4 lg:gap-y-5 xl:gap-y-6 w-full max-h-56 md:max-h-64 lg:max-h-80 xl:max-h-[420px] overflow-y-auto py-4 px-2 scroll-smooth"
     >
-      {/* Floating smooth hardware-accelerated animated caret */}
+      {/* Floating smooth hardware-accelerated animated caret anchored at (0, 0) */}
       {caretPos.visible && (
         <div
-          className="absolute w-[2.5px] lg:w-[3px] rounded-full bg-amber-500 dark:bg-amber-400 pointer-events-none transition-transform duration-75 ease-out animate-caret z-10"
+          className="absolute top-0 left-0 w-[2.5px] lg:w-[3px] rounded-full bg-amber-500 dark:bg-amber-400 pointer-events-none transition-transform duration-75 ease-out animate-caret z-10"
           style={{
             transform: `translate3d(${caretPos.x}px, ${caretPos.y}px, 0)`,
             height: `${caretPos.height}px`,
