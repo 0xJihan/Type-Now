@@ -282,6 +282,12 @@ export class TypingEngine {
             this.correctCharacters = Math.max(0, this.correctCharacters - 1);
           } else {
             this.incorrectCharacters = Math.max(0, this.incorrectCharacters - 1);
+            if (this.characterErrors.length > 0) {
+              const lastErr = this.characterErrors[this.characterErrors.length - 1];
+              if (lastErr.character === targetChar && lastErr.mistyped_as === lastChar) {
+                this.characterErrors.pop();
+              }
+            }
           }
         } else {
           this.incorrectCharacters = Math.max(0, this.incorrectCharacters - 1);
@@ -294,6 +300,20 @@ export class TypingEngine {
           newTyped,
           currentWord.hasNewline
         );
+      } else if (this.currentWordIndex > 0) {
+        const prevIndex = this.currentWordIndex - 1;
+        const prevWord = this.words[prevIndex];
+        if (prevWord) {
+          this.totalCharacters = Math.max(0, this.totalCharacters - 1);
+          if (prevWord.typed === prevWord.target) {
+            this.correctCharacters = Math.max(0, this.correctCharacters - 1);
+          } else {
+            this.incorrectCharacters = Math.max(0, this.incorrectCharacters - 1);
+          }
+
+          prevWord.isCompleted = false;
+          this.currentWordIndex = prevIndex;
+        }
       }
       this.callbacks.onKeystroke?.(this.words, this.currentWordIndex);
       return;

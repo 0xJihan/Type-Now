@@ -46,9 +46,14 @@ export const TypingArea: React.FC<TypingAreaProps> = ({
       return;
     }
 
-    // Restart shortcut: Escape
-    if (e.key === "Escape") {
+    // Restart shortcuts: Cmd+R (macOS), Ctrl+R (Windows/Linux), or Escape
+    const isRestartShortcut =
+      ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "r") ||
+      e.key === "Escape";
+
+    if (isRestartShortcut) {
       e.preventDefault();
+      e.stopPropagation();
       onRestart();
       return;
     }
@@ -69,7 +74,7 @@ export const TypingArea: React.FC<TypingAreaProps> = ({
     <div
       ref={containerRef}
       onClick={focusInput}
-      className="relative w-full max-w-4xl mx-auto rounded-2xl p-6 bg-zinc-50/50 dark:bg-zinc-900/30 border border-zinc-200/60 dark:border-zinc-800/60 transition-all cursor-text min-h-[220px] flex items-center justify-center"
+      className="relative w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-10 xl:p-12 bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none transition-all cursor-text min-h-[220px] md:min-h-[260px] lg:min-h-[300px] xl:min-h-[360px] flex items-center justify-center"
     >
       {/* Hidden input to capture physical/virtual keystrokes and IME */}
       <input

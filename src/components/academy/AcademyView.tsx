@@ -260,9 +260,9 @@ export const AcademyView: React.FC = () => {
   const overallPct = Math.round((completedLessons / totalLessons) * 100);
 
   return (
-    <div className="w-full max-w-4xl mx-auto flex flex-col gap-8 select-none py-2">
+    <div className="w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto flex flex-col gap-8 select-none py-2">
       {/* Academy Overview Banner */}
-      <div className="p-6 rounded-2xl bg-zinc-100/60 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60 flex items-center justify-between">
+      <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none flex items-center justify-between">
         <div className="space-y-1">
           <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold text-xs uppercase tracking-wider">
             <BookOpen className="w-4 h-4" />
@@ -305,7 +305,7 @@ export const AcademyView: React.FC = () => {
           return (
             <div
               key={chapter.id}
-              className="rounded-2xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white dark:bg-zinc-900/20 overflow-hidden"
+              className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/20 shadow-xs dark:shadow-none overflow-hidden"
             >
               <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/40 border-b border-zinc-200/40 dark:border-zinc-800/40 flex items-center justify-between">
                 <div>

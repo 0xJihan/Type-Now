@@ -91,6 +91,15 @@ describe("TypingEngine", () => {
     // Press space to advance
     engine.handleInput(" ");
     expect(engine.getCurrentWordIndex()).toBe(1);
+
+    // Multi-word backspace: Backspace at beginning of word 1 should return to word 0
+    engine.handleInput("Backspace");
+    expect(engine.getCurrentWordIndex()).toBe(0);
+    expect(engine.getWords()[0].isCompleted).toBe(false);
+
+    // Can now edit word 0
+    engine.handleInput("Backspace");
+    expect(engine.getWords()[0].typed).toBe(firstWord.slice(0, -1));
   });
 
   it("completes the test in word mode when all words are typed", () => {

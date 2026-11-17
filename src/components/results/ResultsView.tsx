@@ -16,7 +16,10 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Tab" || e.key === "Enter") {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "r") {
+        e.preventDefault();
+        onRetry();
+      } else if (e.key === "Tab" || e.key === "Enter") {
         e.preventDefault();
         onNewTest();
       } else if (e.key === "Escape") {
@@ -38,7 +41,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
 
       {/* Primary Highlights */}
       <div className="grid grid-cols-2 gap-8 w-full max-w-md text-center mb-8">
-        <div className="flex flex-col items-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
+        <div className="flex flex-col items-center p-6 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none">
           <span className="text-5xl md:text-6xl font-mono font-bold text-amber-600 dark:text-amber-400">
             {Math.round(result.netWpm)}
           </span>
@@ -47,7 +50,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           </span>
         </div>
 
-        <div className="flex flex-col items-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
+        <div className="flex flex-col items-center p-6 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none">
           <span className="text-5xl md:text-6xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
             {Math.round(result.accuracy)}
             <span className="text-2xl text-zinc-400 font-normal ml-0.5">%</span>
@@ -60,7 +63,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
 
       {/* Secondary Metrics Breakdown */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full mb-10 text-center">
-        <div className="p-3 rounded-xl bg-zinc-100/50 dark:bg-zinc-900/20 border border-zinc-200/40 dark:border-zinc-800/40">
+        <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none">
           <span className="text-xs text-zinc-500 font-medium block">
             Gross WPM
           </span>
@@ -69,7 +72,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           </span>
         </div>
 
-        <div className="p-3 rounded-xl bg-zinc-100/50 dark:bg-zinc-900/20 border border-zinc-200/40 dark:border-zinc-800/40">
+        <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none">
           <span className="text-xs text-zinc-500 font-medium block">
             Characters
           </span>
@@ -82,7 +85,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           </span>
         </div>
 
-        <div className="p-3 rounded-xl bg-zinc-100/50 dark:bg-zinc-900/20 border border-zinc-200/40 dark:border-zinc-800/40">
+        <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none">
           <span className="text-xs text-zinc-500 font-medium block">
             Test Mode
           </span>
@@ -92,7 +95,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           </span>
         </div>
 
-        <div className="p-3 rounded-xl bg-zinc-100/50 dark:bg-zinc-900/20 border border-zinc-200/40 dark:border-zinc-800/40">
+        <div className="p-3.5 rounded-xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none">
           <span className="text-xs text-zinc-500 font-medium block">
             Time
           </span>

@@ -36,17 +36,17 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   ];
 
   return (
-    <header className="h-14 border-b border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-950/50 backdrop-blur-xs px-6 flex items-center justify-between select-none">
-      <div className="flex items-center gap-8">
+    <header className="h-14 lg:h-16 border-b border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-950/70 backdrop-blur-md px-6 lg:px-12 flex items-center justify-between select-none transition-colors">
+      <div className="flex items-center gap-8 lg:gap-10">
         {/* Brand */}
         <div
           className="flex items-center gap-2.5 cursor-pointer"
           onClick={() => onSelectTab("home")}
         >
-          <div className="w-8 h-8 rounded-lg bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
-            <Keyboard className="w-4 h-4" />
+          <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
+            <Keyboard className="w-4 h-4 lg:w-4.5 lg:h-4.5" />
           </div>
-          <span className="font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight text-base">
+          <span className="font-semibold text-zinc-950 dark:text-zinc-50 tracking-tight text-base lg:text-lg">
             TypeNow
           </span>
         </div>
@@ -59,10 +59,10 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
               <button
                 key={item.id}
                 onClick={() => onSelectTab(item.id)}
-                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? "text-zinc-950 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800/80 font-semibold"
-                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                    ? "text-zinc-950 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800/90 font-semibold shadow-xs"
+                    : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/60"
                 }`}
               >
                 {item.label}

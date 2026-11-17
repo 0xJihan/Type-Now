@@ -70,7 +70,7 @@ export const StatsDashboard: React.FC = () => {
     : "";
 
   return (
-    <div className="w-full max-w-5xl mx-auto flex flex-col gap-8 select-none py-2">
+    <div className="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto flex flex-col gap-8 select-none py-2">
       {/* Time Period Filter Bar */}
       <div className="flex items-center justify-between">
         <div>
@@ -82,7 +82,7 @@ export const StatsDashboard: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-1 p-1 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium">
+        <div className="flex items-center gap-1 p-1 rounded-lg bg-white dark:bg-zinc-800/80 border border-zinc-200/90 dark:border-zinc-700 shadow-xs text-xs font-medium">
           {[
             { id: "today", label: "Today" },
             { id: "7days", label: "7 Days" },
@@ -92,10 +92,10 @@ export const StatsDashboard: React.FC = () => {
             <button
               key={item.id}
               onClick={() => setPeriod(item.id)}
-              className={`px-3 py-1 rounded-md transition-colors ${
+              className={`px-3 py-1 rounded-md transition-colors cursor-pointer ${
                 period === item.id
-                  ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold"
-                  : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+                  ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-xs font-semibold"
+                  : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
               }`}
             >
               {item.label}
@@ -106,7 +106,7 @@ export const StatsDashboard: React.FC = () => {
 
       {/* Summary KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-zinc-100/50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60 space-y-1">
+        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
           <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
             <Gauge className="w-4 h-4 text-amber-500" />
             <span>Average Speed</span>
@@ -122,7 +122,7 @@ export const StatsDashboard: React.FC = () => {
           </span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-zinc-100/50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60 space-y-1">
+        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
           <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
             <Target className="w-4 h-4 text-emerald-500" />
             <span>Accuracy</span>
@@ -137,7 +137,7 @@ export const StatsDashboard: React.FC = () => {
           </span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-zinc-100/50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60 space-y-1">
+        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
           <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
             <Clock className="w-4 h-4 text-blue-500" />
             <span>Practice Time</span>
@@ -152,7 +152,7 @@ export const StatsDashboard: React.FC = () => {
           </span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-zinc-100/50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60 space-y-1">
+        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
           <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
             <BarChart2 className="w-4 h-4 text-purple-500" />
             <span>Volume</span>

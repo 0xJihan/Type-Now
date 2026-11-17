@@ -33,7 +33,6 @@ import { ChallengeEngine, getTodayDateString } from "./domain/challenge-engine";
 import { AchievementEngine, ACHIEVEMENTS } from "./domain/achievement-engine";
 import { DailyChallenge } from "./types/challenges";
 import { RotateCcw, Trophy, X } from "lucide-react";
-import { Button } from "./components/ui/Button";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("home");
@@ -71,6 +70,23 @@ export default function App() {
 
   // Achievement unlock notifications
   const [unlockedNotification, setUnlockedNotification] = useState<string | null>(null);
+
+  const isMac =
+    typeof navigator !== "undefined" &&
+    (/Mac|iPod|iPhone|iPad/.test(navigator.platform) ||
+      /Mac/.test(navigator.userAgent));
+
+  // Global platform restart shortcut (Cmd+R on macOS, Ctrl+R on Windows/Linux)
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "r") {
+        e.preventDefault();
+        handleRestart(false);
+      }
+    };
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, []);
 
   // Apply theme class to document
   const applyTheme = (theme: "dark" | "light" | "system") => {
@@ -287,9 +303,9 @@ export default function App() {
       )}
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col items-center justify-center px-4 py-6 max-w-5xl w-full mx-auto">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 py-6 lg:py-10 max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-8xl w-full mx-auto">
         {activeTab === "home" && (
-          <div className="w-full flex flex-col items-center gap-8">
+          <div className="w-full flex flex-col items-center gap-6 md:gap-8 lg:gap-10 xl:gap-12">
             {status !== "completed" ? (
               <>
                 {/* Mode Selector */}
@@ -322,21 +338,25 @@ export default function App() {
                   />
                 )}
 
-                {/* Quick Restart Tooltip */}
-                <div className="flex items-center gap-3 text-xs text-zinc-400 select-none">
-                  <Button
-                    variant="ghost"
-                    size="sm"
+                {/* Quick Restart Bar with Platform-Aware Shortcut */}
+                <div className="flex items-center justify-between w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl px-2 text-xs text-zinc-500 dark:text-zinc-400 select-none">
+                  <button
                     onClick={() => handleRestart(false)}
-                    className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white dark:bg-zinc-800/80 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 text-zinc-800 dark:text-zinc-200 border border-zinc-200/90 dark:border-zinc-700/80 font-medium transition-all shadow-xs cursor-pointer active:scale-98"
                   >
-                    <RotateCcw className="w-3.5 h-3.5 mr-1" />
-                    Restart
-                  </Button>
-                  <span>•</span>
-                  <span>
-                    Press <kbd className="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 font-mono text-[11px]">Esc</kbd> to restart
-                  </span>
+                    <RotateCcw className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                    <span>Restart Test</span>
+                    <span className="flex items-center gap-0.5 ml-1 px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-700/80 font-mono text-[10px] text-zinc-600 dark:text-zinc-400 font-semibold">
+                      {isMac ? "⌘R" : "Ctrl+R"}
+                    </span>
+                  </button>
+
+                  <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 text-xs">
+                    <span>or press</span>
+                    <kbd className="px-2 py-0.5 rounded-md bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 font-mono text-[11px] text-zinc-600 dark:text-zinc-300 shadow-2xs">
+                      Esc
+                    </kbd>
+                  </div>
                 </div>
               </>
             ) : (

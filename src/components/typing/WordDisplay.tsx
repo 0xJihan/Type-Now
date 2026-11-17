@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { WordState } from "@/types/typing";
 import { CornerDownLeft } from "lucide-react";
 
@@ -19,47 +19,51 @@ const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent, domRef 
   return (
     <span
       ref={domRef as any}
-      className={`inline-flex items-center text-xl md:text-2xl font-mono leading-relaxed tracking-wide select-none ${
+      className={`inline-flex items-center text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-[2.5rem] font-mono leading-relaxed lg:leading-[1.75] xl:leading-[1.85] tracking-normal lg:tracking-wide select-none ${
         isCurrent ? "relative" : ""
       }`}
     >
       {word.characters.map((ch, idx) => {
-        const isCaretHere = isCurrent && idx === currentPos;
+        const isCaretTarget = isCurrent && idx === currentPos;
 
         let charColor = "text-zinc-400 dark:text-zinc-600";
         if (ch.status === "correct") {
-          charColor = "text-zinc-900 dark:text-zinc-100";
+          charColor = "text-zinc-900 dark:text-zinc-50 font-medium";
         } else if (ch.status === "incorrect") {
           charColor =
-            "text-red-600 dark:text-red-500 underline decoration-red-500/80 decoration-2";
+            "text-rose-600 dark:text-rose-400 font-medium underline decoration-rose-500/80 decoration-2";
         } else if (ch.status === "extra") {
-          charColor = "text-red-700 dark:text-red-400 bg-red-500/10 rounded-xs";
+          charColor = "text-rose-700 dark:text-rose-300 bg-rose-100 dark:bg-rose-500/20 rounded-xs";
         }
 
         return (
-          <span key={idx} className="relative inline-block whitespace-pre">
-            {isCaretHere && (
-              <span className="absolute -left-0.5 top-1 bottom-1 w-0.5 bg-amber-500 dark:bg-amber-400 animate-caret pointer-events-none rounded-full" />
-            )}
-            <span className={charColor}>{ch.char}</span>
+          <span
+            key={idx}
+            data-caret={isCaretTarget ? "true" : undefined}
+            className="relative inline-block whitespace-pre"
+          >
+            <span className={`${charColor} transition-colors duration-75`}>
+              {ch.char}
+            </span>
           </span>
         );
       })}
 
-      {/* Caret at the end of word if user typed all characters or extra */}
+      {/* Trailing position for caret when word is typed */}
       {isCurrent && currentPos >= word.characters.length && (
-        <span className="relative inline-block w-0">
-          <span className="absolute -left-0.5 top-1 bottom-1 w-0.5 bg-amber-500 dark:bg-amber-400 animate-caret pointer-events-none rounded-full" />
-        </span>
+        <span
+          data-caret="true"
+          className="relative inline-block w-0"
+        />
       )}
 
-      {/* Trailing newline indicator or space */}
+      {/* Trailing newline indicator or responsive word gap */}
       {word.hasNewline ? (
         <span className="inline-flex items-center ml-1 text-zinc-300 dark:text-zinc-700">
-          <CornerDownLeft className="w-3.5 h-3.5" />
+          <CornerDownLeft className="w-3.5 h-3.5 lg:w-4.5 lg:h-4.5" />
         </span>
       ) : (
-        <span className="inline-block w-2.5" />
+        <span className="inline-block w-2.5 md:w-3.5 lg:w-4.5 xl:w-5" />
       )}
     </span>
   );
@@ -73,6 +77,53 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
 }) => {
   const activeWordRef = useRef<HTMLSpanElement | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [caretPos, setCaretPos] = useState<{
+    x: number;
+    y: number;
+    height: number;
+    visible: boolean;
+  }>({ x: 0, y: 0, height: 28, visible: false });
+
+  const updateCaret = () => {
+    if (!containerRef.current) return;
+    const target = containerRef.current.querySelector('[data-caret="true"]') as HTMLElement | null;
+    if (!target) return;
+
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+
+    const x = targetRect.left - containerRect.left + containerRef.current.scrollLeft;
+    const y = targetRect.top - containerRect.top + containerRef.current.scrollTop;
+    const height = targetRect.height > 0 ? targetRect.height * 0.8 : 28;
+
+    setCaretPos({
+      x: Math.round(x),
+      y: Math.round(y + (targetRect.height > 0 ? targetRect.height * 0.1 : 3)),
+      height: Math.round(height),
+      visible: true,
+    });
+  };
+
+  useLayoutEffect(() => {
+    updateCaret();
+  }, [words, currentWordIndex]);
+
+  useEffect(() => {
+    const handleResize = () => updateCaret();
+    window.addEventListener("resize", handleResize);
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("scroll", updateCaret);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (container) {
+        container.removeEventListener("scroll", updateCaret);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (activeWordRef.current && containerRef.current) {
@@ -81,7 +132,6 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
       const containerRect = container.getBoundingClientRect();
       const wordRect = word.getBoundingClientRect();
 
-      // If active word falls below visible 60% of container, scroll down smoothly
       if (wordRect.bottom > containerRect.bottom - 40) {
         container.scrollTop += wordRect.bottom - containerRect.bottom + 50;
       } else if (wordRect.top < containerRect.top + 20) {
@@ -93,8 +143,19 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
   return (
     <div
       ref={containerRef}
-      className="flex flex-wrap items-center content-start gap-y-3 w-full max-h-56 overflow-y-auto py-4 px-2 scroll-smooth"
+      className="relative flex flex-wrap items-center content-start gap-y-3 md:gap-y-4 lg:gap-y-5 xl:gap-y-6 w-full max-h-56 md:max-h-64 lg:max-h-80 xl:max-h-[420px] overflow-y-auto py-4 px-2 scroll-smooth"
     >
+      {/* Floating smooth hardware-accelerated animated caret */}
+      {caretPos.visible && (
+        <div
+          className="absolute w-[2.5px] lg:w-[3px] rounded-full bg-amber-500 dark:bg-amber-400 pointer-events-none transition-transform duration-75 ease-out animate-caret z-10"
+          style={{
+            transform: `translate3d(${caretPos.x}px, ${caretPos.y}px, 0)`,
+            height: `${caretPos.height}px`,
+          }}
+        />
+      )}
+
       {words.map((word, idx) => {
         const isCurrent = idx === currentWordIndex;
         return (

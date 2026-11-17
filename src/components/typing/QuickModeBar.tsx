@@ -42,16 +42,16 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-center gap-4 py-2 px-4 rounded-xl bg-zinc-100/80 dark:bg-zinc-900/50 border border-zinc-200/80 dark:border-zinc-800/80 text-xs font-medium text-zinc-500 dark:text-zinc-400 select-none">
+      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 lg:gap-6 py-2 px-3 md:px-5 rounded-xl lg:rounded-2xl bg-white dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none text-xs md:text-sm font-medium text-zinc-600 dark:text-zinc-400 select-none">
         {/* Mode Selector */}
         <div className="flex items-center gap-1">
           <button
             disabled={disabled}
             onClick={() => handleModeChange("time")}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
               config.mode === "time"
-                ? "bg-white dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-2xs"
-                : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                ? "bg-zinc-100 dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-xs"
+                : "hover:text-zinc-950 dark:hover:text-zinc-100"
             }`}
           >
             <Clock className="w-3.5 h-3.5" />
@@ -61,10 +61,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
           <button
             disabled={disabled}
             onClick={() => handleModeChange("words")}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
               config.mode === "words"
-                ? "bg-white dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-2xs"
-                : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                ? "bg-zinc-100 dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-xs"
+                : "hover:text-zinc-950 dark:hover:text-zinc-100"
             }`}
           >
             <Type className="w-3.5 h-3.5" />
@@ -74,10 +74,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
           <button
             disabled={disabled}
             onClick={() => handleModeChange("sentence")}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
               config.mode === "sentence"
-                ? "bg-white dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-2xs"
-                : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                ? "bg-zinc-100 dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-xs"
+                : "hover:text-zinc-950 dark:hover:text-zinc-100"
             }`}
           >
             <AlignLeft className="w-3.5 h-3.5" />
@@ -87,10 +87,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
           <button
             disabled={disabled}
             onClick={() => handleModeChange("quote")}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
               config.mode === "quote"
-                ? "bg-white dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-2xs"
-                : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                ? "bg-zinc-100 dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-xs"
+                : "hover:text-zinc-950 dark:hover:text-zinc-100"
             }`}
           >
             <Quote className="w-3.5 h-3.5" />
@@ -100,10 +100,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
           <button
             disabled={disabled}
             onClick={() => handleModeChange("code")}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
               config.mode === "code"
-                ? "bg-white dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-2xs"
-                : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                ? "bg-zinc-100 dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-xs"
+                : "hover:text-zinc-950 dark:hover:text-zinc-100"
             }`}
           >
             <Code2 className="w-3.5 h-3.5" />
@@ -113,10 +113,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
           <button
             disabled={disabled}
             onClick={() => setIsCustomModalOpen(true)}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
               config.mode === "custom"
-                ? "bg-white dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-2xs"
-                : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                ? "bg-zinc-100 dark:bg-zinc-800 text-amber-600 dark:text-amber-400 font-semibold shadow-xs"
+                : "hover:text-zinc-950 dark:hover:text-zinc-100"
             }`}
           >
             <FileEdit className="w-3.5 h-3.5" />
@@ -134,10 +134,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
                 key={val}
                 disabled={disabled}
                 onClick={() => onChangeConfig({ modeValue: val })}
-                className={`px-2 py-1 rounded-md transition-colors ${
+                className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
                   config.modeValue === val
-                    ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-zinc-100 font-semibold shadow-2xs"
-                    : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                    ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold shadow-xs"
+                    : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                 }`}
               >
                 {val}s
@@ -154,10 +154,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
                   key={val}
                   disabled={disabled}
                   onClick={() => onChangeConfig({ modeValue: val })}
-                  className={`px-2 py-1 rounded-md transition-colors ${
+                  className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
                     config.modeValue === val
-                      ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-zinc-100 font-semibold shadow-2xs"
-                      : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                      ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold shadow-xs"
+                      : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                   }`}
                 >
                   {val}
@@ -173,10 +173,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
                   key={t}
                   disabled={disabled}
                   onClick={() => onChangeConfig({ vocabulary: t })}
-                  className={`px-2 py-1 rounded-md transition-colors ${
+                  className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
                     config.vocabulary === t
-                      ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-zinc-100 font-semibold shadow-2xs"
-                      : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                      ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold shadow-xs"
+                      : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                   }`}
                 >
                   {t === "top200"
@@ -199,10 +199,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
                 key={d}
                 disabled={disabled}
                 onClick={() => onChangeConfig({ difficulty: d })}
-                className={`px-2.5 py-1 rounded-md capitalize transition-colors ${
+                className={`px-2.5 py-1 rounded-md capitalize transition-colors cursor-pointer ${
                   config.difficulty === d
-                    ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-zinc-100 font-semibold shadow-2xs"
-                    : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                    ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold shadow-xs"
+                    : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                 }`}
               >
                 {d}
@@ -218,10 +218,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
                 key={l.id}
                 disabled={disabled}
                 onClick={() => onChangeConfig({ codeLanguage: l.id })}
-                className={`px-2 py-1 rounded-md transition-colors ${
+                className={`px-2 py-1 rounded-md transition-colors cursor-pointer ${
                   config.codeLanguage === l.id || (!config.codeLanguage && l.id === "typescript")
-                    ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-zinc-100 font-semibold shadow-2xs"
-                    : "hover:text-zinc-900 dark:hover:text-zinc-200"
+                    ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold shadow-xs"
+                    : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
                 }`}
               >
                 {l.label}
@@ -232,10 +232,10 @@ export const QuickModeBar: React.FC<QuickModeBarProps> = ({
 
         {config.mode === "custom" && (
           <div className="flex items-center gap-2">
-            <span className="text-zinc-400">Custom passage</span>
+            <span className="text-zinc-500">Custom passage</span>
             <button
               onClick={() => setIsCustomModalOpen(true)}
-              className="text-amber-600 dark:text-amber-400 underline font-medium hover:opacity-80"
+              className="text-amber-600 dark:text-amber-400 underline font-medium hover:opacity-80 cursor-pointer"
             >
               Edit Text
             </button>

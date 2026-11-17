@@ -85,7 +85,7 @@ export const ChallengesView: React.FC<ChallengesViewProps> = ({ onStartChallenge
   const unlockedCount = Object.keys(unlockedAchievements).length;
 
   return (
-    <div className="w-full max-w-5xl mx-auto flex flex-col gap-8 select-none py-2">
+    <div className="w-full max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto flex flex-col gap-8 select-none py-2">
       {/* Top Toggle Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -99,13 +99,13 @@ export const ChallengesView: React.FC<ChallengesViewProps> = ({ onStartChallenge
           </p>
         </div>
 
-        <div className="flex items-center gap-1 p-1 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium">
+        <div className="flex items-center gap-1 p-1 rounded-lg bg-white dark:bg-zinc-800/80 border border-zinc-200/90 dark:border-zinc-700 shadow-xs text-xs font-medium">
           <button
             onClick={() => setActiveTab("challenges")}
-            className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1.5 cursor-pointer ${
               activeTab === "challenges"
-                ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold"
-                : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+                ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-xs font-semibold"
+                : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
             }`}
           >
             <Flag className="w-3.5 h-3.5" />
@@ -113,10 +113,10 @@ export const ChallengesView: React.FC<ChallengesViewProps> = ({ onStartChallenge
           </button>
           <button
             onClick={() => setActiveTab("achievements")}
-            className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded-md transition-colors flex items-center gap-1.5 cursor-pointer ${
               activeTab === "achievements"
-                ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold"
-                : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+                ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-xs font-semibold"
+                : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
             }`}
           >
             <Trophy className="w-3.5 h-3.5" />
