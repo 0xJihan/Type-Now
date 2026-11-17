@@ -4,6 +4,7 @@ import {
   TestMetrics,
   TestResultRecord,
   TestStatus,
+  TestTimelinePoint,
   WordState,
 } from "@/types/typing";
 import { CharacterErrorRecord } from "@/types/stats";
@@ -33,6 +34,8 @@ export class TypingEngine {
   private incorrectCharacters = 0;
   private totalCharacters = 0;
   private characterErrors: CharacterErrorRecord[] = [];
+  private timeline: TestTimelinePoint[] = [];
+  private lastRecordedSecond = -1;
 
   constructor(config: TestConfig, callbacks: EngineCallbacks = {}) {
     this.config = config;
@@ -60,6 +63,10 @@ export class TypingEngine {
     return [...this.characterErrors];
   }
 
+  public getTimeline(): TestTimelinePoint[] {
+    return [...this.timeline];
+  }
+
   public static parseTextIntoWords(text: string): WordState[] {
     const lines = text.split("\n");
     const result: WordState[] = [];
@@ -80,13 +87,14 @@ export class TypingEngine {
           characters: token.split("").map((c) => ({ char: c, status: "pending" })),
           isCompleted: false,
           hasNewline,
+          errorIndices: [],
         });
       }
     }
 
     return result.length > 0
       ? result
-      : [{ target: "", typed: "", characters: [], isCompleted: false }];
+      : [{ target: "", typed: "", characters: [], isCompleted: false, errorIndices: [] }];
   }
 
   public initializeTest(newConfig?: Partial<TestConfig>): void {
@@ -148,6 +156,8 @@ export class TypingEngine {
     this.incorrectCharacters = 0;
     this.totalCharacters = 0;
     this.characterErrors = [];
+    this.timeline = [];
+    this.lastRecordedSecond = -1;
     this.startTime = null;
     this.endTime = null;
 
@@ -159,16 +169,29 @@ export class TypingEngine {
     this.callbacks.onStateChange?.(status, this);
   }
 
-  private buildWordState(target: string, typed: string, hasNewline = false): WordState {
+  private buildWordState(
+    target: string,
+    typed: string,
+    hasNewline = false,
+    errorIndices: number[] = []
+  ): WordState {
     const characters: CharacterState[] = [];
     const maxLen = Math.max(target.length, typed.length);
 
     for (let i = 0; i < maxLen; i++) {
       if (i < target.length && i < typed.length) {
-        characters.push({
-          char: target[i],
-          status: typed[i] === target[i] ? "correct" : "incorrect",
-        });
+        if (typed[i] === target[i]) {
+          const isCorrected = errorIndices.includes(i);
+          characters.push({
+            char: target[i],
+            status: isCorrected ? "corrected" : "correct",
+          });
+        } else {
+          characters.push({
+            char: target[i],
+            status: "incorrect",
+          });
+        }
       } else if (i < target.length) {
         characters.push({
           char: target[i],
@@ -188,12 +211,22 @@ export class TypingEngine {
       characters,
       isCompleted: false,
       hasNewline,
+      errorIndices,
     };
   }
 
   private startTimer(): void {
     this.startTime = performance.now();
     this.setStatus("running");
+    this.timeline = [
+      {
+        second: 0,
+        wpm: 0,
+        rawWpm: 0,
+        errors: 0,
+      },
+    ];
+    this.lastRecordedSecond = 0;
 
     this.timerId = setInterval(() => {
       this.tick();
@@ -212,27 +245,33 @@ export class TypingEngine {
 
     const now = performance.now();
     const elapsedSeconds = (now - this.startTime) / 1000;
+    const currentSecond = Math.floor(elapsedSeconds);
+
+    const metrics = computeMetrics(
+      this.correctCharacters,
+      this.incorrectCharacters,
+      this.totalCharacters,
+      elapsedSeconds
+    );
+
+    if (currentSecond > this.lastRecordedSecond && currentSecond > 0) {
+      this.timeline.push({
+        second: currentSecond,
+        wpm: metrics.netWpm,
+        rawWpm: metrics.grossWpm,
+        errors: this.incorrectCharacters,
+      });
+      this.lastRecordedSecond = currentSecond;
+    }
 
     if (this.config.mode === "time") {
       const remaining = Math.max(0, this.config.modeValue - elapsedSeconds);
-      const metrics = computeMetrics(
-        this.correctCharacters,
-        this.incorrectCharacters,
-        this.totalCharacters,
-        elapsedSeconds
-      );
       this.callbacks.onTick?.(metrics, remaining);
 
       if (remaining <= 0) {
         this.completeTest();
       }
     } else {
-      const metrics = computeMetrics(
-        this.correctCharacters,
-        this.incorrectCharacters,
-        this.totalCharacters,
-        elapsedSeconds
-      );
       this.callbacks.onTick?.(metrics, elapsedSeconds);
     }
   }
@@ -298,7 +337,8 @@ export class TypingEngine {
         this.words[this.currentWordIndex] = this.buildWordState(
           currentWord.target,
           newTyped,
-          currentWord.hasNewline
+          currentWord.hasNewline,
+          currentWord.errorIndices || []
         );
       } else if (this.currentWordIndex > 0) {
         const prevIndex = this.currentWordIndex - 1;
@@ -348,6 +388,7 @@ export class TypingEngine {
     if (key.length === 1) {
       const pos = currentWord.typed.length;
       const targetChar = currentWord.target[pos];
+      const currentErrors = currentWord.errorIndices ? [...currentWord.errorIndices] : [];
 
       this.totalCharacters++;
       if (pos < currentWord.target.length) {
@@ -355,6 +396,9 @@ export class TypingEngine {
           this.correctCharacters++;
         } else {
           this.incorrectCharacters++;
+          if (!currentErrors.includes(pos)) {
+            currentErrors.push(pos);
+          }
           // Record character error for weak keys analytics
           this.characterErrors.push({
             character: targetChar,
@@ -370,7 +414,8 @@ export class TypingEngine {
       this.words[this.currentWordIndex] = this.buildWordState(
         currentWord.target,
         newTyped,
-        currentWord.hasNewline
+        currentWord.hasNewline,
+        currentErrors
       );
 
       this.callbacks.onKeystroke?.(this.words, this.currentWordIndex);
@@ -408,6 +453,21 @@ export class TypingEngine {
       duration
     );
 
+    const roundedDuration = Math.round(duration * 10) / 10;
+    const finalSecond = Math.max(1, Math.round(duration));
+
+    if (
+      this.timeline.length === 0 ||
+      this.timeline[this.timeline.length - 1].second < finalSecond
+    ) {
+      this.timeline.push({
+        second: finalSecond,
+        wpm: metrics.netWpm,
+        rawWpm: metrics.grossWpm,
+        errors: this.incorrectCharacters,
+      });
+    }
+
     const result: TestResultRecord = {
       timestamp: Date.now(),
       mode: this.config.mode,
@@ -418,9 +478,10 @@ export class TypingEngine {
       correctCharacters: this.correctCharacters,
       incorrectCharacters: this.incorrectCharacters,
       totalCharacters: this.totalCharacters,
-      durationSeconds: Math.round(duration * 10) / 10,
+      durationSeconds: roundedDuration,
       language: this.config.language,
       seed: this.config.seed,
+      timeline: [...this.timeline],
     };
 
     this.callbacks.onComplete?.(result, this.characterErrors);

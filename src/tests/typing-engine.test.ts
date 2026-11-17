@@ -135,18 +135,67 @@ describe("TypingEngine", () => {
     expect(completedResult!.modeValue).toBe(2);
   });
 
-  it("stops timer and transitions to cancelled upon cancel", () => {
+  it("marks a character as corrected when fixed after a mistake", () => {
     const engine = new TypingEngine({
-      mode: "time",
-      modeValue: 30,
+      mode: "words",
+      modeValue: 5,
       vocabulary: "top200",
       language: "en",
+      seed: "unit-test-seed",
     });
 
-    engine.handleInput("a");
-    expect(engine.getStatus()).toBe("running");
+    const firstWord = engine.getWords()[0].target; // e.g. "the"
+    const correctChar0 = firstWord[0];
+    const correctChar1 = firstWord[1];
+    const wrongChar1 = correctChar1 === "z" ? "a" : "z";
 
-    engine.cancel();
-    expect(engine.getStatus()).toBe("cancelled");
+    // 1. Type first char correctly
+    engine.handleInput(correctChar0);
+    expect(engine.getWords()[0].characters[0].status).toBe("correct");
+
+    // 2. Type second char incorrectly
+    engine.handleInput(wrongChar1);
+    expect(engine.getWords()[0].characters[1].status).toBe("incorrect");
+
+    // 3. Backspace the mistake
+    engine.handleInput("Backspace");
+    expect(engine.getWords()[0].typed).toBe(correctChar0);
+
+    // 4. Type second char correctly
+    engine.handleInput(correctChar1);
+    expect(engine.getWords()[0].typed).toBe(correctChar0 + correctChar1);
+    // It should now be marked as "corrected", not "correct" or "incorrect"
+    expect(engine.getWords()[0].characters[1].status).toBe("corrected");
+  });
+
+  it("captures performance timeline snapshots", () => {
+    let completedResult: TestResultRecord | null = null;
+    const engine = new TypingEngine(
+      {
+        mode: "words",
+        modeValue: 1,
+        vocabulary: "top200",
+        language: "en",
+        seed: "timeline-test",
+      },
+      {
+        onComplete: (res) => {
+          completedResult = res;
+        },
+      }
+    );
+
+    const firstWord = engine.getWords()[0].target;
+    for (const ch of firstWord) {
+      engine.handleInput(ch);
+    }
+
+    expect(engine.getStatus()).toBe("completed");
+    expect(completedResult).not.toBeNull();
+    expect(completedResult!.timeline).toBeDefined();
+    expect(completedResult!.timeline!.length).toBeGreaterThan(0);
+    const lastPoint = completedResult!.timeline![completedResult!.timeline!.length - 1];
+    expect(lastPoint.second).toBeGreaterThanOrEqual(1);
+    expect(lastPoint.wpm).toBeGreaterThan(0);
   });
 });

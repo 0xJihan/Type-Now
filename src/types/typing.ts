@@ -2,7 +2,7 @@ export type TestStatus = "idle" | "ready" | "running" | "completed" | "cancelled
 
 export type TestMode = "time" | "words" | "sentence" | "quote" | "code" | "custom";
 
-export type CharacterStatus = "pending" | "correct" | "incorrect" | "extra";
+export type CharacterStatus = "pending" | "correct" | "incorrect" | "extra" | "corrected";
 
 export interface CharacterState {
   char: string;
@@ -15,6 +15,14 @@ export interface WordState {
   characters: CharacterState[];
   isCompleted: boolean;
   hasNewline?: boolean;
+  errorIndices?: number[];
+}
+
+export interface TestTimelinePoint {
+  second: number;
+  wpm: number;
+  rawWpm: number;
+  errors: number;
 }
 
 export interface TestMetrics {
@@ -55,4 +63,5 @@ export interface TestResultRecord {
   durationSeconds: number;
   language: string;
   seed?: string;
+  timeline?: TestTimelinePoint[];
 }

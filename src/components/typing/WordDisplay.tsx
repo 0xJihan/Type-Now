@@ -26,9 +26,11 @@ const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent, domRef 
       {word.characters.map((ch, idx) => {
         const isCaretTarget = isCurrent && idx === currentPos;
 
-        let charColor = "text-zinc-400 dark:text-zinc-600";
+        let charColor = "text-zinc-500 dark:text-zinc-500";
         if (ch.status === "correct") {
-          charColor = "text-zinc-900 dark:text-zinc-50 font-medium";
+          charColor = "text-zinc-950 dark:text-zinc-50 font-medium";
+        } else if (ch.status === "corrected") {
+          charColor = "text-amber-600 dark:text-amber-400 font-semibold";
         } else if (ch.status === "incorrect") {
           charColor =
             "text-rose-600 dark:text-rose-400 font-medium underline decoration-rose-500/80 decoration-2";
