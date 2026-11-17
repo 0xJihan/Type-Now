@@ -1,52 +1,152 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-tertiary: var(--surface-tertiary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-disabled: var(--text-disabled);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-error: var(--error);
+  --color-error-soft: var(--error-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-typing-correct: var(--typing-correct);
+  --color-typing-pending: var(--typing-pending);
+  --color-typing-incorrect: var(--typing-incorrect);
+  --color-typing-cursor: var(--typing-cursor);
+  --color-metric-value: var(--metric-value);
+  --color-metric-label: var(--metric-label);
+  --color-metric-accent: var(--metric-accent);
+}
+
 @layer base {
   :root {
-    --bg-primary: #f8fafc;
-    --bg-secondary: #f1f5f9;
-    --bg-surface: #ffffff;
-    --border-subtle: #e2e8f0;
-    --border-strong: #cbd5e1;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --accent: #d97706;
-    --accent-hover: #b45309;
-    --accent-subtle: #fef3c7;
-    --char-correct: #0f172a;
-    --char-corrected: #d97706;
-    --char-incorrect: #e11d48;
-    --char-pending: #64748b;
+    --background: #F7F8FA;
+    --foreground: #20242C;
+
+    --surface: #FFFFFF;
+    --surface-secondary: #F1F3F5;
+    --surface-tertiary: #EAECF0;
+
+    --text-primary: #20242C;
+    --text-secondary: #667085;
+    --text-muted: #858D99;
+    --text-disabled: #AEB4BE;
+
+    --border: #E5E7EB;
+    --border-strong: #D0D5DD;
+
+    --accent: #B7791F;
+    --accent-hover: #975F13;
+    --accent-soft: #FFF4D6;
+    --accent-foreground: #FFFFFF;
+
+    --success: #15803D;
+    --success-soft: #DCFCE7;
+
+    --error: #DC2626;
+    --error-soft: #FEE2E2;
+
+    --warning: #B7791F;
+    --warning-soft: #FFF4D6;
+
+    --typing-correct: #20242C;
+    --typing-pending: #858D99;
+    --typing-incorrect: #DC2626;
+    --typing-cursor: #B7791F;
+
+    --metric-value: #20242C;
+    --metric-label: #667085;
+    --metric-accent: #B7791F;
+
+    /* Backwards compatibility aliases */
+    --bg-primary: var(--background);
+    --bg-secondary: var(--surface-secondary);
+    --bg-surface: var(--surface);
+    --border-subtle: var(--border);
+    --accent-subtle: var(--accent-soft);
+    --char-correct: var(--typing-correct);
+    --char-corrected: #B7791F;
+    --char-incorrect: var(--typing-incorrect);
+    --char-pending: var(--typing-pending);
     --char-extra: #9f1239;
   }
 
   .dark {
-    --bg-primary: #09090b;
-    --bg-secondary: #121215;
-    --bg-surface: #18181b;
-    --border-subtle: #27272a;
-    --border-strong: #3f3f46;
+    --background: #09090b;
+    --foreground: #f4f4f5;
+
+    --surface: #18181b;
+    --surface-secondary: #121215;
+    --surface-tertiary: #27272a;
+
     --text-primary: #f4f4f5;
     --text-secondary: #a1a1aa;
-    --text-muted: #52525b;
+    --text-muted: #71717a;
+    --text-disabled: #52525b;
+
+    --border: #27272a;
+    --border-strong: #3f3f46;
+
     --accent: #f59e0b;
     --accent-hover: #fbbf24;
-    --accent-subtle: #292010;
-    --char-correct: #f4f4f5;
+    --accent-soft: rgba(245, 158, 11, 0.15);
+    --accent-foreground: #09090b;
+
+    --success: #22c55e;
+    --success-soft: rgba(34, 197, 94, 0.15);
+
+    --error: #f87171;
+    --error-soft: rgba(248, 113, 113, 0.15);
+
+    --warning: #f59e0b;
+    --warning-soft: rgba(245, 158, 11, 0.15);
+
+    --typing-correct: #f4f4f5;
+    --typing-pending: #71717a;
+    --typing-incorrect: #f87171;
+    --typing-cursor: #f59e0b;
+
+    --metric-value: #f4f4f5;
+    --metric-label: #a1a1aa;
+    --metric-accent: #f59e0b;
+
+    /* Backwards compatibility aliases */
+    --bg-primary: var(--background);
+    --bg-secondary: var(--surface-secondary);
+    --bg-surface: var(--surface);
+    --border-subtle: var(--border);
+    --accent-subtle: var(--accent-soft);
+    --char-correct: var(--typing-correct);
     --char-corrected: #fbbf24;
-    --char-incorrect: #f87171;
-    --char-pending: #71717a;
+    --char-incorrect: var(--typing-incorrect);
+    --char-pending: var(--typing-pending);
     --char-extra: #ef4444;
   }
 
   * {
-    border-color: var(--border-subtle);
+    border-color: var(--border);
   }
 
   body {
-    background-color: var(--bg-primary);
+    background-color: var(--background);
     color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans);
     user-select: none;
     -webkit-user-select: none;
     overflow-x: hidden;

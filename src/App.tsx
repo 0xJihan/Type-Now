@@ -274,7 +274,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-(--bg-primary) text-(--text-primary) flex flex-col antialiased selection:bg-amber-500/20">
+    <div className="min-h-screen bg-background text-text-primary flex flex-col antialiased selection:bg-accent-soft selection:text-text-primary">
       {/* Shell Header */}
       <AppHeader
         activeTab={activeTab}
@@ -288,14 +288,14 @@ export default function App() {
 
       {/* Achievement Banner Notification */}
       {unlockedNotification && (
-        <div className="fixed top-16 right-6 z-50 flex items-center gap-3 p-3.5 rounded-xl bg-amber-500 text-zinc-950 shadow-lg border border-amber-400 font-medium text-xs select-none animate-in slide-in-from-top-2 duration-300">
+        <div className="fixed top-16 right-6 z-50 flex items-center gap-3 p-3.5 rounded-xl bg-accent text-accent-foreground shadow-lg border border-accent-hover font-medium text-xs select-none animate-in slide-in-from-top-2 duration-300">
           <Trophy className="w-4 h-4 shrink-0" />
           <span>
             Achievement Unlocked: <strong>{unlockedNotification}</strong>
           </span>
           <button
             onClick={() => setUnlockedNotification(null)}
-            className="p-1 hover:opacity-75"
+            className="p-1 hover:opacity-75 cursor-pointer"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -339,21 +339,21 @@ export default function App() {
                 )}
 
                 {/* Quick Restart Bar with Platform-Aware Shortcut */}
-                <div className="flex items-center justify-between w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl px-2 text-xs text-zinc-500 dark:text-zinc-400 select-none">
+                <div className="flex items-center justify-between w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl px-2 text-xs text-text-secondary select-none">
                   <button
                     onClick={() => handleRestart(false)}
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white dark:bg-zinc-800/80 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 text-zinc-800 dark:text-zinc-200 border border-zinc-200/90 dark:border-zinc-700/80 font-medium transition-all shadow-xs cursor-pointer active:scale-98"
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface hover:bg-surface-secondary text-text-primary border border-border font-medium transition-all shadow-2xs cursor-pointer active:scale-98"
                   >
-                    <RotateCcw className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                    <RotateCcw className="w-3.5 h-3.5 text-accent" />
                     <span>Restart Test</span>
-                    <span className="flex items-center gap-0.5 ml-1 px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-700/80 font-mono text-[10px] text-zinc-600 dark:text-zinc-400 font-semibold">
+                    <span className="flex items-center gap-0.5 ml-1 px-1.5 py-0.5 rounded bg-surface-secondary border border-border-strong font-mono text-[10px] text-text-secondary font-semibold">
                       {isMac ? "⌘R" : "Ctrl+R"}
                     </span>
                   </button>
 
-                  <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 text-xs">
+                  <div className="flex items-center gap-2 text-text-secondary text-xs">
                     <span>or press</span>
-                    <kbd className="px-2 py-0.5 rounded-md bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 font-mono text-[11px] text-zinc-600 dark:text-zinc-300 shadow-2xs">
+                    <kbd className="px-2 py-0.5 rounded-md bg-surface border border-border font-mono text-[11px] text-text-secondary shadow-2xs">
                       Esc
                     </kbd>
                   </div>

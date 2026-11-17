@@ -36,17 +36,17 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   ];
 
   return (
-    <header className="h-14 lg:h-16 border-b border-zinc-200/90 dark:border-zinc-800 bg-white/90 dark:bg-zinc-950/70 backdrop-blur-md px-6 lg:px-12 flex items-center justify-between select-none transition-colors">
+    <header className="h-14 lg:h-16 border-b border-border bg-surface px-6 lg:px-12 flex items-center justify-between select-none transition-colors">
       <div className="flex items-center gap-8 lg:gap-10">
         {/* Brand */}
         <div
           className="flex items-center gap-2.5 cursor-pointer"
           onClick={() => onSelectTab("home")}
         >
-          <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
+          <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center font-bold">
             <Keyboard className="w-4 h-4 lg:w-4.5 lg:h-4.5" />
           </div>
-          <span className="font-semibold text-zinc-950 dark:text-zinc-50 tracking-tight text-base lg:text-lg">
+          <span className="font-semibold text-text-primary tracking-tight text-base lg:text-lg">
             TypeNow
           </span>
         </div>
@@ -61,8 +61,8 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
                 onClick={() => onSelectTab(item.id)}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? "text-zinc-950 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800/90 font-semibold shadow-xs"
-                    : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/60"
+                    ? "text-text-primary bg-surface-secondary font-semibold"
+                    : "text-text-secondary hover:text-text-primary hover:bg-surface-secondary/70"
                 }`}
               >
                 {item.label}
@@ -73,18 +73,18 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
       </div>
 
       {/* Header Actions */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5">
         <Button
           variant="ghost"
           size="sm"
           onClick={onToggleSound}
           title={soundEnabled ? "Mute sounds" : "Enable keyboard sounds"}
-          className="px-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+          className="px-2.5 text-text-secondary hover:text-text-primary hover:bg-surface-secondary"
         >
           {soundEnabled ? (
-            <Volume2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+            <Volume2 className="w-4 h-4 text-accent" />
           ) : (
-            <VolumeX className="w-4 h-4 opacity-50" />
+            <VolumeX className="w-4 h-4 text-text-muted opacity-70" />
           )}
         </Button>
 
@@ -93,7 +93,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           size="sm"
           onClick={onToggleTheme}
           title="Toggle dark / light theme"
-          className="px-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+          className="px-2.5 text-text-secondary hover:text-text-primary hover:bg-surface-secondary"
         >
           {theme === "dark" ? (
             <Sun className="w-4 h-4" />
@@ -107,7 +107,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           size="sm"
           onClick={onOpenSettings}
           title="Settings"
-          className="px-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+          className="px-2.5 text-text-secondary hover:text-text-primary hover:bg-surface-secondary"
         >
           <Settings className="w-4 h-4" />
         </Button>

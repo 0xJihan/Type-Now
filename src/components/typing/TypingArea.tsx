@@ -74,7 +74,7 @@ export const TypingArea: React.FC<TypingAreaProps> = ({
     <div
       ref={containerRef}
       onClick={focusInput}
-      className="relative w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-10 xl:p-12 bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none transition-all cursor-text min-h-[220px] md:min-h-[260px] lg:min-h-[300px] xl:min-h-[360px] flex items-center justify-center"
+      className="relative w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto rounded-xl lg:rounded-2xl p-6 md:p-8 lg:p-10 xl:p-12 bg-surface border border-border shadow-2xs transition-all cursor-text min-h-[220px] md:min-h-[260px] lg:min-h-[300px] xl:min-h-[360px] flex items-center justify-center"
     >
       {/* Hidden input to capture physical/virtual keystrokes and IME */}
       <input

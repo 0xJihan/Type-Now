@@ -74,15 +74,15 @@ export const StatsDashboard: React.FC = () => {
       {/* Time Period Filter Bar */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+          <h2 className="text-xl font-bold text-text-primary">
             Performance & Analytics
           </h2>
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-text-secondary">
             Real typing test performance data derived from your local database.
           </p>
         </div>
 
-        <div className="flex items-center gap-1 p-1 rounded-lg bg-white dark:bg-zinc-800/80 border border-zinc-200/90 dark:border-zinc-700 shadow-xs text-xs font-medium">
+        <div className="flex items-center gap-1 p-1 rounded-lg bg-surface border border-border shadow-2xs text-xs font-medium">
           {[
             { id: "today", label: "Today" },
             { id: "7days", label: "7 Days" },
@@ -94,8 +94,8 @@ export const StatsDashboard: React.FC = () => {
               onClick={() => setPeriod(item.id)}
               className={`px-3 py-1 rounded-md transition-colors cursor-pointer ${
                 period === item.id
-                  ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-xs font-semibold"
-                  : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100"
+                  ? "bg-text-primary text-surface font-semibold shadow-2xs"
+                  : "text-text-secondary hover:text-text-primary hover:bg-surface-secondary/70"
               }`}
             >
               {item.label}
@@ -106,64 +106,64 @@ export const StatsDashboard: React.FC = () => {
 
       {/* Summary KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
-          <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
-            <Gauge className="w-4 h-4 text-amber-500" />
+        <div className="p-5 rounded-2xl bg-surface border border-border shadow-2xs space-y-1">
+          <div className="flex items-center gap-2 text-text-secondary text-xs font-medium uppercase tracking-wider">
+            <Gauge className="w-4 h-4 text-accent" />
             <span>Average Speed</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
+            <span className="text-3xl font-mono font-bold text-text-primary tabular-nums">
               {summary.avg_wpm}
             </span>
-            <span className="text-xs text-zinc-400 font-mono">WPM</span>
+            <span className="text-xs text-text-muted font-mono">WPM</span>
           </div>
-          <span className="text-[11px] text-zinc-400 block">
-            Best: <strong className="text-zinc-700 dark:text-zinc-300">{summary.best_wpm} WPM</strong>
+          <span className="text-[11px] text-text-muted block">
+            Best: <strong className="text-text-secondary">{summary.best_wpm} WPM</strong>
           </span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
-          <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
-            <Target className="w-4 h-4 text-emerald-500" />
+        <div className="p-5 rounded-2xl bg-surface border border-border shadow-2xs space-y-1">
+          <div className="flex items-center gap-2 text-text-secondary text-xs font-medium uppercase tracking-wider">
+            <Target className="w-4 h-4 text-success" />
             <span>Accuracy</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
+            <span className="text-3xl font-mono font-bold text-text-primary tabular-nums">
               {summary.avg_accuracy}%
             </span>
           </div>
-          <span className="text-[11px] text-zinc-400 block">
-            Peak: <strong className="text-zinc-700 dark:text-zinc-300">{summary.best_accuracy}%</strong>
+          <span className="text-[11px] text-text-muted block">
+            Peak: <strong className="text-text-secondary">{summary.best_accuracy}%</strong>
           </span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
-          <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
-            <Clock className="w-4 h-4 text-blue-500" />
+        <div className="p-5 rounded-2xl bg-surface border border-border shadow-2xs space-y-1">
+          <div className="flex items-center gap-2 text-text-secondary text-xs font-medium uppercase tracking-wider">
+            <Clock className="w-4 h-4 text-accent" />
             <span>Practice Time</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
+            <span className="text-3xl font-mono font-bold text-text-primary tabular-nums">
               {formatSeconds(summary.total_time_seconds)}
             </span>
           </div>
-          <span className="text-[11px] text-zinc-400 block">
+          <span className="text-[11px] text-text-muted block">
             Across {summary.total_tests} completed tests
           </span>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none space-y-1">
-          <div className="flex items-center gap-2 text-zinc-400 text-xs font-medium uppercase tracking-wider">
-            <BarChart2 className="w-4 h-4 text-purple-500" />
+        <div className="p-5 rounded-2xl bg-surface border border-border shadow-2xs space-y-1">
+          <div className="flex items-center gap-2 text-text-secondary text-xs font-medium uppercase tracking-wider">
+            <BarChart2 className="w-4 h-4 text-accent" />
             <span>Volume</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
+            <span className="text-3xl font-mono font-bold text-text-primary tabular-nums">
               {summary.total_characters.toLocaleString()}
             </span>
-            <span className="text-xs text-zinc-400 font-mono">chars</span>
+            <span className="text-xs text-text-muted font-mono">chars</span>
           </div>
-          <span className="text-[11px] text-zinc-400 block">
+          <span className="text-[11px] text-text-muted block">
             ~{Math.round(summary.total_characters / 5).toLocaleString()} words typed
           </span>
         </div>
@@ -172,28 +172,27 @@ export const StatsDashboard: React.FC = () => {
       {/* Speed Trend Chart & Weak Key Insights */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Speed Curve Chart */}
-        <div className="md:col-span-2 p-5 rounded-2xl bg-white dark:bg-zinc-900/30 border border-zinc-200/60 dark:border-zinc-800/60 space-y-3">
+        <div className="md:col-span-2 p-5 rounded-2xl bg-surface border border-border shadow-2xs space-y-3">
           <div className="flex items-center justify-between">
-            <span className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
+            <span className="font-semibold text-sm text-text-primary">
               Speed Trend (Last 20 Sessions)
             </span>
-            <span className="text-xs text-zinc-400 font-mono">Peak: {maxWpm} WPM</span>
+            <span className="text-xs text-text-muted font-mono">Peak: {maxWpm} WPM</span>
           </div>
 
           {points.length > 1 ? (
             <div className="w-full h-44 flex items-center justify-center">
               <svg viewBox="0 0 400 160" className="w-full h-full overflow-visible">
                 {/* Horizontal reference lines */}
-                <line x1="20" y1="30" x2="380" y2="30" stroke="currentColor" className="text-zinc-200 dark:text-zinc-800" strokeDasharray="3 3" />
-                <line x1="20" y1="85" x2="380" y2="85" stroke="currentColor" className="text-zinc-200 dark:text-zinc-800" strokeDasharray="3 3" />
-                <line x1="20" y1="140" x2="380" y2="140" stroke="currentColor" className="text-zinc-200 dark:text-zinc-800" />
+                <line x1="20" y1="30" x2="380" y2="30" stroke="currentColor" className="text-border" strokeDasharray="3 3" />
+                <line x1="20" y1="85" x2="380" y2="85" stroke="currentColor" className="text-border" strokeDasharray="3 3" />
+                <line x1="20" y1="140" x2="380" y2="140" stroke="currentColor" className="text-border" />
 
                 {/* Polyline Path */}
                 <path
                   d={pathD}
                   fill="none"
-                  stroke="currentColor"
-                  className="text-amber-500"
+                  stroke="var(--accent)"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -206,7 +205,7 @@ export const StatsDashboard: React.FC = () => {
                     cx={p.x}
                     cy={p.y}
                     r="3.5"
-                    className="fill-amber-500 hover:scale-150 transition-all cursor-pointer"
+                    className="fill-accent hover:scale-150 transition-all cursor-pointer"
                   >
                     <title>{`${Math.round(p.wpm)} WPM (${Math.round(p.acc)}% acc) - ${p.mode}`}</title>
                   </circle>
@@ -214,7 +213,7 @@ export const StatsDashboard: React.FC = () => {
               </svg>
             </div>
           ) : (
-            <div className="w-full h-44 flex flex-col items-center justify-center text-zinc-400 text-xs">
+            <div className="w-full h-44 flex flex-col items-center justify-center text-text-muted text-xs">
               <BarChart2 className="w-6 h-6 mb-1 opacity-50" />
               <span>Complete more tests to view your speed curve</span>
             </div>
@@ -222,17 +221,17 @@ export const StatsDashboard: React.FC = () => {
         </div>
 
         {/* Weak Keys & Personalized Recommendations */}
-        <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/30 border border-zinc-200/60 dark:border-zinc-800/60 space-y-4">
+        <div className="p-5 rounded-2xl bg-surface border border-border shadow-2xs space-y-4">
           <div className="flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 text-rose-500" />
-            <span className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
+            <AlertCircle className="w-4 h-4 text-error" />
+            <span className="font-semibold text-sm text-text-primary">
               Weak Key Analytics
             </span>
           </div>
 
           {weakKeys.length > 0 ? (
             <div className="space-y-3">
-              <p className="text-xs text-zinc-500">
+              <p className="text-xs text-text-secondary">
                 Frequently mistyped keys from your actual typing sessions:
               </p>
 
@@ -240,7 +239,7 @@ export const StatsDashboard: React.FC = () => {
                 {weakKeys.map((w) => (
                   <div
                     key={w.character}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 text-xs font-mono font-medium"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-error-soft/60 border border-error/20 text-error text-xs font-mono font-medium"
                   >
                     <span className="font-bold text-sm">{w.character}</span>
                     <span className="text-[10px] opacity-75">({w.total_errors} err)</span>
@@ -248,18 +247,18 @@ export const StatsDashboard: React.FC = () => {
                 ))}
               </div>
 
-              <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
-                <span className="font-semibold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+              <div className="p-3 rounded-xl bg-accent-soft/40 border border-accent/20 text-xs text-text-secondary space-y-1">
+                <span className="font-semibold text-accent flex items-center gap-1">
                   <Sparkles className="w-3.5 h-3.5" /> Recommendation
                 </span>
                 <p>
                   Practice Academy Chapters 2–3 to reinforce muscle memory for{" "}
-                  <strong>{weakKeys.map((k) => `'${k.character}'`).join(", ")}</strong> without glancing at the keyboard.
+                  <strong className="text-text-primary">{weakKeys.map((k) => `'${k.character}'`).join(", ")}</strong> without glancing at the keyboard.
                 </p>
               </div>
             </div>
           ) : (
-            <div className="text-xs text-zinc-400 py-8 text-center">
+            <div className="text-xs text-text-muted py-8 text-center">
               No recurring weak keys detected yet.
             </div>
           )}
@@ -267,11 +266,11 @@ export const StatsDashboard: React.FC = () => {
       </div>
 
       {/* Test History Table */}
-      <div className="p-5 rounded-2xl bg-white dark:bg-zinc-900/30 border border-zinc-200/60 dark:border-zinc-800/60 space-y-4">
+      <div className="p-5 rounded-2xl bg-surface border border-border shadow-2xs space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-zinc-400" />
-            <span className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
+            <Filter className="w-4 h-4 text-text-muted" />
+            <span className="font-semibold text-sm text-text-primary">
               Session History
             </span>
           </div>
@@ -282,10 +281,10 @@ export const StatsDashboard: React.FC = () => {
               <button
                 key={m}
                 onClick={() => setModeFilter(m)}
-                className={`px-2.5 py-1 rounded capitalize transition-colors ${
+                className={`px-2.5 py-1 rounded capitalize transition-colors cursor-pointer ${
                   modeFilter === m
-                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-medium"
-                    : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+                    ? "bg-text-primary text-surface font-semibold shadow-2xs"
+                    : "text-text-secondary hover:text-text-primary hover:bg-surface-secondary/70"
                 }`}
               >
                 {m}
@@ -298,36 +297,36 @@ export const StatsDashboard: React.FC = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 font-medium pb-2">
-                  <th className="py-2">Date & Time</th>
-                  <th className="py-2">Mode</th>
-                  <th className="py-2">Net WPM</th>
-                  <th className="py-2">Accuracy</th>
-                  <th className="py-2">Characters</th>
-                  <th className="py-2 text-right">Duration</th>
+                <tr className="border-b border-border text-text-muted font-medium pb-2">
+                  <th className="py-2 font-medium">Date & Time</th>
+                  <th className="py-2 font-medium">Mode</th>
+                  <th className="py-2 font-medium">Net WPM</th>
+                  <th className="py-2 font-medium">Accuracy</th>
+                  <th className="py-2 font-medium">Characters</th>
+                  <th className="py-2 text-right font-medium">Duration</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/50 font-mono">
+              <tbody className="divide-y divide-border font-mono">
                 {filteredHistory.slice(0, 15).map((row) => (
-                  <tr key={row.id || row.timestamp} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/30">
-                    <td className="py-2.5 text-zinc-500 font-sans">
+                  <tr key={row.id || row.timestamp} className="hover:bg-surface-secondary/50 transition-colors">
+                    <td className="py-2.5 text-text-secondary font-sans">
                       {new Date(row.timestamp).toLocaleDateString()} {new Date(row.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                     </td>
-                    <td className="py-2.5 capitalize text-zinc-700 dark:text-zinc-300 font-sans">
-                      <span className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-[11px]">
+                    <td className="py-2.5 capitalize text-text-primary font-sans">
+                      <span className="px-1.5 py-0.5 rounded bg-surface-secondary border border-border text-[11px] text-text-secondary font-mono">
                         {row.mode} {row.modeValue > 0 ? row.modeValue : ""}
                       </span>
                     </td>
-                    <td className="py-2.5 font-bold text-amber-600 dark:text-amber-400">
+                    <td className="py-2.5 font-bold text-accent tabular-nums">
                       {row.netWpm}
                     </td>
-                    <td className="py-2.5 text-zinc-900 dark:text-zinc-100 font-semibold">
+                    <td className="py-2.5 text-text-primary font-semibold tabular-nums">
                       {row.accuracy}%
                     </td>
-                    <td className="py-2.5 text-zinc-500 text-[11px]">
-                      <span className="text-emerald-500">{row.correctCharacters}</span> / <span className="text-rose-500">{row.incorrectCharacters}</span>
+                    <td className="py-2.5 text-text-secondary text-[11px] tabular-nums">
+                      <span className="text-success font-medium">{row.correctCharacters}</span> / <span className="text-error font-medium">{row.incorrectCharacters}</span>
                     </td>
-                    <td className="py-2.5 text-right text-zinc-500">
+                    <td className="py-2.5 text-right text-text-secondary tabular-nums">
                       {row.durationSeconds}s
                     </td>
                   </tr>
@@ -336,7 +335,7 @@ export const StatsDashboard: React.FC = () => {
             </table>
           </div>
         ) : (
-          <div className="text-center py-8 text-zinc-400 text-xs">
+          <div className="text-center py-8 text-text-muted text-xs">
             No typing sessions recorded for the selected filter.
           </div>
         )}

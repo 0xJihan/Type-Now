@@ -159,10 +159,10 @@ export const AcademyView: React.FC = () => {
           </Button>
 
           <div className="flex flex-col items-center">
-            <h2 className="font-semibold text-base text-zinc-900 dark:text-zinc-100">
+            <h2 className="font-semibold text-base text-text-primary">
               {activeLesson.title}
             </h2>
-            <span className="text-xs text-zinc-500">
+            <span className="text-xs text-text-secondary">
               Exercise {exerciseIndex + 1} of {activeLesson.exercises.length} • Min:{" "}
               {activeLesson.minWpm} WPM / {activeLesson.minAccuracy}% Acc
             </span>
@@ -186,41 +186,41 @@ export const AcademyView: React.FC = () => {
 
         {/* Lesson Result Modal */}
         {lessonResult && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-            <div className="w-full max-w-md p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl text-center space-y-5 animate-in zoom-in-95 duration-200">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
+            <div className="w-full max-w-md p-6 rounded-2xl bg-surface border border-border shadow-xl text-center space-y-5 animate-in zoom-in-95 duration-200">
               <div className="flex justify-center">
                 {lessonResult.passed ? (
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-success-soft text-success flex items-center justify-center">
                     <Sparkles className="w-6 h-6" />
                   </div>
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-accent-soft text-accent flex items-center justify-center">
                     <RotateCcw className="w-6 h-6" />
                   </div>
                 )}
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+                <h3 className="text-lg font-bold text-text-primary">
                   {lessonResult.passed ? "Lesson Complete!" : "Keep Practicing"}
                 </h3>
-                <p className="text-xs text-zinc-500 mt-1">
+                <p className="text-xs text-text-secondary mt-1">
                   {lessonResult.passed
                     ? "Great job! You achieved the required speed and accuracy."
                     : `You need ${activeLesson.minWpm} WPM and ${activeLesson.minAccuracy}% accuracy to advance.`}
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 py-2 border-y border-zinc-200 dark:border-zinc-800">
+              <div className="grid grid-cols-2 gap-4 py-2 border-y border-border">
                 <div>
-                  <span className="text-xs text-zinc-400 font-medium">Your Speed</span>
-                  <span className="block text-2xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
-                    {Math.round(lessonResult.wpm)} <span className="text-xs font-normal">WPM</span>
+                  <span className="text-xs text-text-muted font-medium">Your Speed</span>
+                  <span className="block text-2xl font-mono font-bold text-text-primary tabular-nums">
+                    {Math.round(lessonResult.wpm)} <span className="text-xs font-normal text-text-muted">WPM</span>
                   </span>
                 </div>
                 <div>
-                  <span className="text-xs text-zinc-400 font-medium">Your Accuracy</span>
-                  <span className="block text-2xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
+                  <span className="text-xs text-text-muted font-medium">Your Accuracy</span>
+                  <span className="block text-2xl font-mono font-bold text-text-primary tabular-nums">
                     {Math.round(lessonResult.accuracy)}%
                   </span>
                 </div>
@@ -262,16 +262,16 @@ export const AcademyView: React.FC = () => {
   return (
     <div className="w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto flex flex-col gap-8 select-none py-2">
       {/* Academy Overview Banner */}
-      <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-zinc-800/80 shadow-xs dark:shadow-none flex items-center justify-between">
+      <div className="p-6 rounded-2xl bg-surface border border-border shadow-2xs flex items-center justify-between">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold text-xs uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-accent font-semibold text-xs uppercase tracking-wider">
             <BookOpen className="w-4 h-4" />
             <span>TypeNow Academy</span>
           </div>
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+          <h2 className="text-xl font-bold text-text-primary">
             Touch Typing Curriculum
           </h2>
-          <p className="text-xs text-zinc-500 max-w-md">
+          <p className="text-xs text-text-secondary max-w-md">
             Progressive 10-chapter curriculum designed to build touch typing intuition, proper finger
             placement, and sustained accuracy.
           </p>
@@ -279,18 +279,18 @@ export const AcademyView: React.FC = () => {
 
         <div className="flex flex-col items-end gap-1.5 min-w-[140px]">
           <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-mono font-bold text-zinc-900 dark:text-zinc-100">
+            <span className="text-3xl font-mono font-bold text-text-primary tabular-nums">
               {overallPct}%
             </span>
-            <span className="text-xs text-zinc-400">Complete</span>
+            <span className="text-xs text-text-muted">Complete</span>
           </div>
-          <div className="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-surface-tertiary rounded-full overflow-hidden">
             <div
-              className="h-full bg-amber-500 rounded-full transition-all duration-500"
+              className="h-full bg-accent rounded-full transition-all duration-500"
               style={{ width: `${overallPct}%` }}
             />
           </div>
-          <span className="text-[11px] text-zinc-400">
+          <span className="text-[11px] text-text-muted">
             {completedLessons} of {totalLessons} lessons completed
           </span>
         </div>
@@ -305,27 +305,27 @@ export const AcademyView: React.FC = () => {
           return (
             <div
               key={chapter.id}
-              className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/20 shadow-xs dark:shadow-none overflow-hidden"
+              className="rounded-2xl border border-border bg-surface shadow-2xs overflow-hidden"
             >
-              <div className="px-6 py-4 bg-zinc-50/50 dark:bg-zinc-900/40 border-b border-zinc-200/40 dark:border-zinc-800/40 flex items-center justify-between">
+              <div className="px-6 py-4 bg-surface-secondary/60 border-b border-border flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono font-semibold text-amber-600 dark:text-amber-400">
+                    <span className="text-xs font-mono font-semibold text-accent">
                       Chapter {chapter.id.toString().padStart(2, "0")}
                     </span>
                     {isChDone && (
-                      <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">
+                      <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-success-soft text-success font-semibold">
                         <CheckCircle className="w-3 h-3" /> Mastered
                       </span>
                     )}
                   </div>
-                  <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                  <h3 className="text-base font-semibold text-text-primary">
                     {chapter.title}
                   </h3>
-                  <p className="text-xs text-zinc-500 mt-0.5">{chapter.description}</p>
+                  <p className="text-xs text-text-secondary mt-0.5">{chapter.description}</p>
                 </div>
 
-                <span className="text-xs font-mono text-zinc-400">
+                <span className="text-xs font-mono text-text-muted tabular-nums">
                   {chCompleted}/{chapter.lessons.length}
                 </span>
               </div>
@@ -344,41 +344,41 @@ export const AcademyView: React.FC = () => {
                       onClick={() => unlocked && startLesson(lesson)}
                       className={`p-4 rounded-xl border transition-all ${
                         !unlocked
-                          ? "opacity-50 border-zinc-200/40 dark:border-zinc-800/40 bg-zinc-50/30 dark:bg-zinc-900/10 cursor-not-allowed"
+                          ? "opacity-50 border-border bg-surface-secondary/40 cursor-not-allowed"
                           : completed
-                          ? "border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-500/60 cursor-pointer"
-                          : "border-zinc-200 dark:border-zinc-800 hover:border-amber-500/60 bg-white dark:bg-zinc-900/60 cursor-pointer shadow-2xs"
+                          ? "border-success/30 bg-success-soft/20 hover:border-success/60 cursor-pointer shadow-2xs"
+                          : "border-border hover:border-accent/60 bg-surface cursor-pointer shadow-2xs hover:bg-surface-secondary/40"
                       }`}
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-[11px] font-mono text-zinc-400 capitalize">
+                        <span className="text-[11px] font-mono text-text-muted capitalize">
                           {lesson.difficulty}
                         </span>
 
                         <div>
-                          {!unlocked && <Lock className="w-4 h-4 text-zinc-400" />}
+                          {!unlocked && <Lock className="w-4 h-4 text-text-muted" />}
                           {unlocked && completed && !mastered && (
-                            <CheckCircle className="w-4 h-4 text-emerald-500" />
+                            <CheckCircle className="w-4 h-4 text-success" />
                           )}
                           {unlocked && mastered && (
-                            <Award className="w-4 h-4 text-amber-500" />
+                            <Award className="w-4 h-4 text-accent" />
                           )}
                         </div>
                       </div>
 
-                      <h4 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 mb-1">
+                      <h4 className="font-semibold text-sm text-text-primary mb-1">
                         {lesson.title}
                       </h4>
-                      <p className="text-[11px] text-zinc-500 line-clamp-2 mb-3">
+                      <p className="text-[11px] text-text-secondary line-clamp-2 mb-3">
                         {lesson.description}
                       </p>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-zinc-200/40 dark:border-zinc-800/40 text-[10px] text-zinc-400 font-mono">
+                      <div className="flex items-center justify-between pt-2 border-t border-border text-[10px] text-text-muted font-mono">
                         <span>
                           Target: {lesson.minWpm} WPM / {lesson.minAccuracy}%
                         </span>
                         {completed && (
-                          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                          <span className="text-success font-semibold">
                             Best: {Math.round(p.best_wpm)} WPM
                           </span>
                         )}

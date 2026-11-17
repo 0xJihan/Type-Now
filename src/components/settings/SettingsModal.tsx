@@ -54,16 +54,16 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs select-none animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[85vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs select-none animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-surface border border-border rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
-          <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+        <div className="px-6 py-4 border-b border-border flex items-center justify-between">
+          <h2 className="text-base font-semibold text-text-primary">
             Settings
           </h2>
           <button
             onClick={onClose}
-            className="p-1 rounded-md text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            className="p-1 rounded-md text-text-muted hover:text-text-primary hover:bg-surface-secondary transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -73,8 +73,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         <div className="p-6 overflow-y-auto space-y-6 text-sm">
           {/* Appearance Section */}
           <section className="space-y-3">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-              <Palette className="w-4 h-4" />
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-secondary">
+              <Palette className="w-4 h-4 text-accent" />
               <span>Appearance</span>
             </div>
             <div className="flex items-center gap-2">
@@ -82,10 +82,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <button
                   key={t}
                   onClick={() => onUpdatePreferences({ theme: t })}
-                  className={`flex-1 py-2 px-3 rounded-lg border text-xs font-medium capitalize transition-all ${
+                  className={`flex-1 py-2 px-3 rounded-lg border text-xs font-medium capitalize transition-all cursor-pointer ${
                     preferences.theme === t
-                      ? "border-amber-500 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold"
-                      : "border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 text-zinc-600 dark:text-zinc-400"
+                      ? "border-accent bg-accent-soft text-accent font-semibold"
+                      : "border-border hover:border-border-strong text-text-secondary hover:bg-surface-secondary"
                   }`}
                 >
                   {t}
@@ -97,8 +97,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           {/* Sound Section */}
           <section className="space-y-3">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                <Volume2 className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-secondary">
+                <Volume2 className="w-4 h-4 text-accent" />
                 <span>Mechanical Keyboard Audio</span>
               </div>
               <button
@@ -107,10 +107,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   onUpdatePreferences({ soundEnabled: enabled });
                   soundManager.updateSettings({ enabled });
                 }}
-                className={`text-xs px-2.5 py-1 rounded-md font-medium transition-colors ${
+                className={`text-xs px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
                   preferences.soundEnabled
-                    ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                    : "bg-zinc-200 dark:bg-zinc-800 text-zinc-500"
+                    ? "bg-success-soft text-success"
+                    : "bg-surface-secondary text-text-muted"
                 }`}
               >
                 {preferences.soundEnabled ? "Enabled" : "Muted"}
@@ -119,7 +119,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
             {/* Volume Slider */}
             <div className="flex items-center gap-4 py-1">
-              <VolumeX className="w-4 h-4 text-zinc-400 shrink-0" />
+              <VolumeX className="w-4 h-4 text-text-muted shrink-0" />
               <Slider
                 value={preferences.soundVolume}
                 disabled={!preferences.soundEnabled}
@@ -128,14 +128,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   soundManager.updateSettings({ volume: val });
                 }}
               />
-              <span className="text-xs font-mono text-zinc-500 w-8 text-right">
+              <span className="text-xs font-mono text-text-secondary w-8 text-right">
                 {Math.round(preferences.soundVolume * 100)}%
               </span>
             </div>
 
             {/* Key Release Toggle */}
             <div className="flex items-center justify-between py-1 text-xs">
-              <span className="text-zinc-500">Play key release (up) acoustics</span>
+              <span className="text-text-secondary">Play key release (up) acoustics</span>
               <input
                 type="checkbox"
                 checked={preferences.playKeyRelease ?? true}
@@ -144,7 +144,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   onUpdatePreferences({ playKeyRelease });
                   soundManager.updateSettings({ playKeyRelease });
                 }}
-                className="accent-amber-500 cursor-pointer w-4 h-4"
+                className="accent-accent cursor-pointer w-4 h-4"
               />
             </div>
 
@@ -158,25 +158,25 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     onClick={() => handleSelectSoundPack(pack.id)}
                     className={`flex items-center justify-between p-2.5 rounded-lg border cursor-pointer transition-all ${
                       isSelected
-                        ? "border-amber-500/60 bg-amber-500/5 dark:bg-amber-500/10"
-                        : "border-zinc-200/60 dark:border-zinc-800/60 hover:bg-zinc-50 dark:hover:bg-zinc-800/40"
+                        ? "border-accent bg-accent-soft/50"
+                        : "border-border hover:bg-surface-secondary/70"
                     }`}
                   >
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-xs text-zinc-900 dark:text-zinc-100">
+                        <span className="font-medium text-xs text-text-primary">
                           {pack.name}
                         </span>
                         {pack.id === "mx-brown" && (
-                          <span className="text-[9px] text-amber-600 dark:text-amber-400 px-1 py-0.2 rounded bg-amber-500/10 font-medium">
+                          <span className="text-[9px] text-accent px-1.5 py-0.5 rounded bg-accent-soft font-medium">
                             Default
                           </span>
                         )}
-                        <span className="text-[10px] text-zinc-400 px-1.5 py-0.2 rounded-sm bg-zinc-100 dark:bg-zinc-800">
+                        <span className="text-[10px] text-text-secondary px-1.5 py-0.5 rounded-sm bg-surface-tertiary">
                           {pack.kind}
                         </span>
                       </div>
-                      <span className="text-[11px] text-zinc-500 block truncate max-w-[280px]">
+                      <span className="text-[11px] text-text-muted block truncate max-w-[280px]">
                         {pack.summary}
                       </span>
                     </div>
@@ -189,12 +189,12 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                           handlePreviewSound(pack.id);
                         }}
                         title="Preview audio sample"
-                        className="p-1 rounded text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                        className="p-1 rounded text-text-muted hover:text-text-primary hover:bg-surface-tertiary cursor-pointer"
                       >
                         <Play className="w-3.5 h-3.5" />
                       </button>
                       {isSelected && (
-                        <Check className="w-4 h-4 text-amber-500" />
+                        <Check className="w-4 h-4 text-accent" />
                       )}
                     </div>
                   </div>
@@ -204,13 +204,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </section>
 
           {/* Local SQLite Storage Section */}
-          <section className="space-y-3 pt-2 border-t border-zinc-200 dark:border-zinc-800">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
-              <Database className="w-4 h-4" />
+          <section className="space-y-3 pt-2 border-t border-border">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-secondary">
+              <Database className="w-4 h-4 text-accent" />
               <span>Offline SQLite Data</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-xs text-zinc-500">
+              <span className="text-xs text-text-secondary">
                 All records, progress, and achievements are saved locally.
               </span>
 
@@ -237,7 +237,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   variant="outline"
                   size="sm"
                   onClick={() => setConfirmClear(true)}
-                  className="text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20"
+                  className="text-error hover:bg-error-soft/60"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   Clear Data
@@ -248,7 +248,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 flex justify-end">
+        <div className="px-6 py-3 border-t border-border bg-surface-secondary/40 flex justify-end">
           <Button variant="secondary" size="sm" onClick={onClose}>
             Done
           </Button>

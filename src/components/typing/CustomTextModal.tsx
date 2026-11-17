@@ -36,19 +36,19 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
   const charCount = text.length;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs select-none animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs select-none animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-surface border border-border rounded-2xl shadow-xl overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+        <div className="px-6 py-4 border-b border-border flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-amber-500" />
-            <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
+            <FileText className="w-4 h-4 text-accent" />
+            <h3 className="font-semibold text-sm text-text-primary">
               Custom Practice Text
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200"
+            className="p-1 rounded-md text-text-muted hover:text-text-primary hover:bg-surface-secondary transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -56,7 +56,7 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
 
         {/* Textarea */}
         <div className="p-6 space-y-3">
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-text-secondary">
             Paste or edit your own text to practice. Works 100% offline; text is never uploaded.
           </p>
 
@@ -68,19 +68,19 @@ export const CustomTextModal: React.FC<CustomTextModalProps> = ({
               if (error) setError(null);
             }}
             placeholder="Type or paste custom text here..."
-            className="w-full p-3 font-mono text-xs rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 focus:outline-none focus:ring-2 focus:ring-amber-500 text-zinc-900 dark:text-zinc-100 resize-none"
+            className="w-full p-3 font-mono text-xs rounded-xl border border-border bg-surface-secondary focus:outline-none focus:ring-2 focus:ring-accent text-text-primary placeholder:text-text-muted resize-none"
           />
 
-          <div className="flex items-center justify-between text-xs text-zinc-400 font-mono">
+          <div className="flex items-center justify-between text-xs text-text-muted font-mono">
             <span>
               {wordCount} words • {charCount} chars
             </span>
-            {error && <span className="text-rose-500 font-sans font-medium">{error}</span>}
+            {error && <span className="text-error font-sans font-medium">{error}</span>}
           </div>
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 flex items-center justify-end gap-2">
+        <div className="px-6 py-3 border-t border-border bg-surface-secondary/50 flex items-center justify-end gap-2">
           <Button variant="ghost" size="sm" onClick={onClose}>
             Cancel
           </Button>

@@ -26,16 +26,16 @@ const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent, domRef 
       {word.characters.map((ch, idx) => {
         const isCaretTarget = isCurrent && idx === currentPos;
 
-        let charColor = "text-zinc-500 dark:text-zinc-500";
+        let charColor = "text-typing-pending";
         if (ch.status === "correct") {
-          charColor = "text-zinc-950 dark:text-zinc-50 font-medium";
+          charColor = "text-typing-correct font-medium";
         } else if (ch.status === "corrected") {
-          charColor = "text-amber-600 dark:text-amber-400 font-semibold";
+          charColor = "text-accent font-semibold";
         } else if (ch.status === "incorrect") {
           charColor =
-            "text-rose-600 dark:text-rose-400 font-medium underline decoration-rose-500/80 decoration-2";
+            "text-typing-incorrect font-medium underline decoration-error/80 decoration-2";
         } else if (ch.status === "extra") {
-          charColor = "text-rose-700 dark:text-rose-300 bg-rose-100 dark:bg-rose-500/20 rounded-xs";
+          charColor = "text-typing-incorrect bg-error-soft/70 rounded-xs font-medium";
         }
 
         return (
@@ -63,7 +63,7 @@ const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent, domRef 
 
       {/* Trailing newline indicator or responsive word gap */}
       {word.hasNewline ? (
-        <span className="inline-flex items-center ml-1 text-zinc-300 dark:text-zinc-700">
+        <span className="inline-flex items-center ml-1 text-border-strong">
           <CornerDownLeft className="w-3.5 h-3.5 lg:w-4.5 lg:h-4.5" />
         </span>
       ) : (
@@ -156,7 +156,7 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
       {/* Floating smooth hardware-accelerated animated caret anchored at (0, 0) */}
       {caretPos.visible && (
         <div
-          className="absolute top-0 left-0 w-[2.5px] lg:w-[3px] rounded-full bg-amber-500 dark:bg-amber-400 pointer-events-none transition-transform duration-75 ease-out animate-caret z-10"
+          className="absolute top-0 left-0 w-[2.5px] lg:w-[3px] rounded-full bg-typing-cursor pointer-events-none transition-transform duration-75 ease-out animate-caret z-10"
           style={{
             transform: `translate3d(${caretPos.x}px, ${caretPos.y}px, 0)`,
             height: `${caretPos.height}px`,

@@ -41,20 +41,20 @@ export const VisualKeyboard: React.FC<VisualKeyboardProps> = ({
 
   return (
     <div
-      className={`flex flex-col items-center select-none p-4 rounded-2xl bg-zinc-100/60 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60 ${className}`}
+      className={`flex flex-col items-center select-none p-4 rounded-2xl bg-surface border border-border shadow-2xs ${className}`}
     >
       {/* Target Key and Finger Indicator Banner */}
       <div className="flex items-center justify-between w-full max-w-md mb-3 px-2 text-xs">
-        <span className="text-zinc-500">
+        <span className="text-text-secondary">
           Target Key:{" "}
-          <strong className="text-zinc-900 dark:text-zinc-100 font-mono text-sm ml-1 px-1.5 py-0.5 rounded bg-zinc-200/80 dark:bg-zinc-800">
+          <strong className="text-text-primary font-mono text-sm ml-1 px-2 py-0.5 rounded bg-surface-secondary border border-border-strong">
             {targetChar === " " ? "Space" : targetChar || "•"}
           </strong>
         </span>
 
         {fingerInfo && (
           <span className="font-medium flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-amber-500" />
+            <span className="w-2 h-2 rounded-full bg-accent" />
             <span className={fingerInfo.color}>{fingerInfo.name}</span>
           </span>
         )}
@@ -80,16 +80,16 @@ export const VisualKeyboard: React.FC<VisualKeyboardProps> = ({
               return (
                 <div
                   key={key}
-                  className={`relative flex items-center justify-center rounded border transition-colors shadow-2xs ${width} ${
+                  className={`relative flex items-center justify-center rounded-md border transition-colors shadow-2xs ${width} ${
                     isTarget
-                      ? "bg-amber-500 text-zinc-950 font-bold border-amber-600 scale-105 z-10 animate-pulse"
-                      : "bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border-zinc-200/80 dark:border-zinc-700/80"
+                      ? "bg-accent text-accent-foreground font-bold border-accent-hover scale-105 z-10 shadow-sm"
+                      : "bg-surface text-text-primary border-border"
                   }`}
                 >
                   <span>{key}</span>
                   {/* Home row bumps on F and J */}
                   {isHomeKey && !isTarget && (
-                    <span className="absolute bottom-1 w-2.5 h-0.5 rounded-full bg-zinc-400 dark:bg-zinc-500" />
+                    <span className="absolute bottom-1 w-2.5 h-0.5 rounded-full bg-border-strong" />
                   )}
                 </div>
               );

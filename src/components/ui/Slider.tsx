@@ -32,7 +32,7 @@ export const Slider: React.FC<SliderProps> = ({
       onChange={(e) => onChange(parseFloat(e.target.value))}
       className={twMerge(
         clsx(
-          "w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-600 dark:accent-amber-500 disabled:opacity-40 disabled:cursor-not-allowed",
+          "w-full h-1.5 bg-surface-tertiary rounded-lg appearance-none cursor-pointer accent-accent disabled:opacity-40 disabled:cursor-not-allowed",
           className
         )
       )}
