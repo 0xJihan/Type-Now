@@ -38,7 +38,15 @@ export const TypingArea: React.FC<TypingAreaProps> = ({
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (disabled) return;
 
-    // Restart shortcut: Tab + Enter or Escape
+    // Prevent Tab from shifting focus during typing
+    if (e.key === "Tab") {
+      e.preventDefault();
+      // Handle Tab as spaces or shortcut
+      engine.handleInput(" ");
+      return;
+    }
+
+    // Restart shortcut: Escape
     if (e.key === "Escape") {
       e.preventDefault();
       onRestart();

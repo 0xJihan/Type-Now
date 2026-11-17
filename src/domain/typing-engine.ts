@@ -6,12 +6,14 @@ import {
   TestStatus,
   WordState,
 } from "@/types/typing";
+import { CharacterErrorRecord } from "@/types/stats";
 import { computeMetrics } from "./metrics";
 import { WordGenerator } from "./word-generator";
+import { contentSelector } from "./content-selector";
 
 export interface EngineCallbacks {
   onTick?: (metrics: TestMetrics, remainingOrElapsed: number) => void;
-  onComplete?: (result: TestResultRecord) => void;
+  onComplete?: (result: TestResultRecord, characterErrors: CharacterErrorRecord[]) => void;
   onStateChange?: (status: TestStatus) => void;
 }
 
@@ -29,6 +31,7 @@ export class TypingEngine {
   private correctCharacters = 0;
   private incorrectCharacters = 0;
   private totalCharacters = 0;
+  private characterErrors: CharacterErrorRecord[] = [];
 
   constructor(config: TestConfig, callbacks: EngineCallbacks = {}) {
     this.config = config;
@@ -52,6 +55,39 @@ export class TypingEngine {
     return this.currentWordIndex;
   }
 
+  public getCharacterErrors(): CharacterErrorRecord[] {
+    return [...this.characterErrors];
+  }
+
+  public static parseTextIntoWords(text: string): WordState[] {
+    const lines = text.split("\n");
+    const result: WordState[] = [];
+
+    for (let lineIdx = 0; lineIdx < lines.length; lineIdx++) {
+      const line = lines[lineIdx];
+      const tokens = line.split(" ");
+      const isLastLine = lineIdx === lines.length - 1;
+
+      for (let tokenIdx = 0; tokenIdx < tokens.length; tokenIdx++) {
+        const token = tokens[tokenIdx];
+        const isLastTokenInLine = tokenIdx === tokens.length - 1;
+        const hasNewline = isLastTokenInLine && !isLastLine;
+
+        result.push({
+          target: token,
+          typed: "",
+          characters: token.split("").map((c) => ({ char: c, status: "pending" })),
+          isCompleted: false,
+          hasNewline,
+        });
+      }
+    }
+
+    return result.length > 0
+      ? result
+      : [{ target: "", typed: "", characters: [], isCompleted: false }];
+  }
+
   public initializeTest(newConfig?: Partial<TestConfig>): void {
     this.stopTimer();
 
@@ -59,21 +95,58 @@ export class TypingEngine {
       this.config = { ...this.config, ...newConfig };
     }
 
-    const generator = new WordGenerator({
-      tier: this.config.vocabulary,
-      seed: this.config.seed,
-    });
+    if (this.config.mode === "time" || this.config.mode === "words") {
+      const generator = new WordGenerator({
+        tier: this.config.vocabulary,
+        seed: this.config.seed,
+      });
 
-    const rawWords =
-      this.config.mode === "time"
-        ? generator.generateForTime(this.config.modeValue)
-        : generator.generateWords(this.config.modeValue);
+      const rawWords =
+        this.config.mode === "time"
+          ? generator.generateForTime(this.config.modeValue)
+          : generator.generateWords(this.config.modeValue);
 
-    this.words = rawWords.map((w) => this.buildWordState(w, ""));
+      this.words = rawWords.map((w) => this.buildWordState(w, "", false));
+    } else if (this.config.mode === "sentence") {
+      const item = contentSelector.selectSentence(
+        this.config.difficulty,
+        this.config.contentId ? [this.config.contentId] : [],
+        this.config.seed
+      );
+      this.config.contentId = item.id;
+      this.config.author = item.author;
+      this.config.source = item.source;
+      this.words = TypingEngine.parseTextIntoWords(item.text);
+    } else if (this.config.mode === "quote") {
+      const item = contentSelector.selectQuote(
+        this.config.difficulty,
+        this.config.contentId ? [this.config.contentId] : [],
+        this.config.seed
+      );
+      this.config.contentId = item.id;
+      this.config.author = item.author;
+      this.config.source = item.source;
+      this.words = TypingEngine.parseTextIntoWords(item.text);
+    } else if (this.config.mode === "code") {
+      const item = contentSelector.selectCode(
+        this.config.codeLanguage as any,
+        this.config.difficulty,
+        this.config.contentId ? [this.config.contentId] : [],
+        this.config.seed
+      );
+      this.config.contentId = item.id;
+      this.config.source = item.source;
+      this.words = TypingEngine.parseTextIntoWords(item.text);
+    } else if (this.config.mode === "custom") {
+      const custom = this.config.customText || "The quick brown fox jumps over the lazy dog.";
+      this.words = TypingEngine.parseTextIntoWords(custom);
+    }
+
     this.currentWordIndex = 0;
     this.correctCharacters = 0;
     this.incorrectCharacters = 0;
     this.totalCharacters = 0;
+    this.characterErrors = [];
     this.startTime = null;
     this.endTime = null;
 
@@ -85,7 +158,7 @@ export class TypingEngine {
     this.callbacks.onStateChange?.(status);
   }
 
-  private buildWordState(target: string, typed: string): WordState {
+  private buildWordState(target: string, typed: string, hasNewline = false): WordState {
     const characters: CharacterState[] = [];
     const maxLen = Math.max(target.length, typed.length);
 
@@ -101,7 +174,6 @@ export class TypingEngine {
           status: "pending",
         });
       } else {
-        // Extra characters typed beyond target length
         characters.push({
           char: typed[i],
           status: "extra",
@@ -114,6 +186,7 @@ export class TypingEngine {
       typed,
       characters,
       isCompleted: false,
+      hasNewline,
     };
   }
 
@@ -166,7 +239,6 @@ export class TypingEngine {
   public handleInput(key: string, isComposing = false): void {
     if (isComposing) return;
 
-    // Filter out modifier / navigation keys
     if (
       [
         "Shift",
@@ -189,7 +261,6 @@ export class TypingEngine {
       return;
     }
 
-    // Auto-start on first printable key if ready
     if (this.status === "ready") {
       this.startTimer();
     }
@@ -212,7 +283,6 @@ export class TypingEngine {
             this.incorrectCharacters = Math.max(0, this.incorrectCharacters - 1);
           }
         } else {
-          // Reverting extra character
           this.incorrectCharacters = Math.max(0, this.incorrectCharacters - 1);
         }
         this.totalCharacters = Math.max(0, this.totalCharacters - 1);
@@ -220,17 +290,17 @@ export class TypingEngine {
         const newTyped = currentWord.typed.slice(0, -1);
         this.words[this.currentWordIndex] = this.buildWordState(
           currentWord.target,
-          newTyped
+          newTyped,
+          currentWord.hasNewline
         );
       }
       return;
     }
 
-    if (key === " ") {
-      // Prevent skipping if nothing typed
-      if (currentWord.typed.length === 0) return;
+    // Advance word on Space or Enter (when word has newline)
+    if (key === " " || (key === "Enter" && currentWord.hasNewline)) {
+      if (currentWord.typed.length === 0 && currentWord.target.length > 0) return;
 
-      // Count space keystroke
       this.totalCharacters++;
       if (currentWord.typed === currentWord.target) {
         this.correctCharacters++;
@@ -241,9 +311,9 @@ export class TypingEngine {
       currentWord.isCompleted = true;
       this.currentWordIndex++;
 
-      // In word mode, check for completion
+      // Non-time modes complete when all words are typed
       if (
-        this.config.mode === "words" &&
+        this.config.mode !== "time" &&
         this.currentWordIndex >= this.words.length
       ) {
         this.completeTest();
@@ -261,21 +331,27 @@ export class TypingEngine {
           this.correctCharacters++;
         } else {
           this.incorrectCharacters++;
+          // Record character error for weak keys analytics
+          this.characterErrors.push({
+            character: targetChar,
+            mistyped_as: key,
+            count: 1,
+          });
         }
       } else {
-        // Extra character typed
         this.incorrectCharacters++;
       }
 
       const newTyped = currentWord.typed + key;
       this.words[this.currentWordIndex] = this.buildWordState(
         currentWord.target,
-        newTyped
+        newTyped,
+        currentWord.hasNewline
       );
 
-      // Auto-complete in word mode if last word is fully typed and correct
+      // Auto-complete in non-time modes if last word is typed and matches
       if (
-        this.config.mode === "words" &&
+        this.config.mode !== "time" &&
         this.currentWordIndex === this.words.length - 1 &&
         newTyped === currentWord.target
       ) {
@@ -321,7 +397,7 @@ export class TypingEngine {
       seed: this.config.seed,
     };
 
-    this.callbacks.onComplete?.(result);
+    this.callbacks.onComplete?.(result, this.characterErrors);
   }
 
   public cancel(): void {

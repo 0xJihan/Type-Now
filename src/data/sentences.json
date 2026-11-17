@@ -1,0 +1,150 @@
+[
+  {
+    "id": "sent-001",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "beginner",
+    "text": "The quick brown fox jumps over the lazy dog.",
+    "source": "Traditional Pangram",
+    "license": "Public Domain",
+    "tags": [
+      "pangram",
+      "short"
+    ]
+  },
+  {
+    "id": "sent-002",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "beginner",
+    "text": "Bright sunlight streamed through the window as morning arrived in the quiet valley.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "nature",
+      "descriptive"
+    ]
+  },
+  {
+    "id": "sent-003",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "beginner",
+    "text": "Learning to touch type requires deliberate daily practice and correct finger placement.",
+    "source": "TypeNow Academy",
+    "license": "CC0 1.0",
+    "tags": [
+      "instructional"
+    ]
+  },
+  {
+    "id": "sent-004",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "intermediate",
+    "text": "Although the rain fell steadily throughout the afternoon, the travelers continued along the winding forest trail.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "narrative",
+      "complex"
+    ]
+  },
+  {
+    "id": "sent-005",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "intermediate",
+    "text": "Effective software architecture emphasizes modular boundaries, clear data flows, and maintainable abstractions.",
+    "source": "TypeNow Engineering",
+    "license": "CC0 1.0",
+    "tags": [
+      "technology"
+    ]
+  },
+  {
+    "id": "sent-006",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "intermediate",
+    "text": "The librarian cataloged antique manuscripts with meticulous care, ensuring each fragile folio was safely preserved.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "vocational"
+    ]
+  },
+  {
+    "id": "sent-007",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "advanced",
+    "text": "Notwithstanding the formidable impediments encountered during exploration, their perseverance unveiled unprecedented geological phenomena.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "scientific",
+      "advanced"
+    ]
+  },
+  {
+    "id": "sent-008",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "advanced",
+    "text": "The philosopher argued that genuine intellectual autonomy demands rigorous skepticism towards prevailing cultural dogmas.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": "sent-009",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "beginner",
+    "text": "She packed her camera, a notebook, and a small compass before departing on the coastal hike.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "travel"
+    ]
+  },
+  {
+    "id": "sent-010",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "intermediate",
+    "text": "A gentle breeze rustled the maple leaves while children gathered around the wooden picnic table.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "sent-011",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "advanced",
+    "text": "Atmospheric turbulence exacerbated the aircraft's erratic trajectory across the stormy mountain pass.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "aviation"
+    ]
+  },
+  {
+    "id": "sent-012",
+    "language": "en",
+    "type": "sentence",
+    "difficulty": "intermediate",
+    "text": "Every morning at dawn, the baker kneaded sourdough loaves and placed them inside the stone oven.",
+    "source": "TypeNow Curated Sentences",
+    "license": "CC0 1.0",
+    "tags": [
+      "craft"
+    ]
+  }
+]

@@ -6,10 +6,15 @@ export class SoundManager {
   private currentPack: SoundPackMeta | null = null;
   private bufferCache = new Map<string, AudioBuffer>();
   private manifest: SoundPackMeta[] = [];
+  private activeVoices: AudioBufferSourceNode[] = [];
+  private maxConcurrentVoices = 16;
+  private lastSamplePlayed: Record<string, string> = {};
+
   private settings: AudioSettings = {
     enabled: true,
-    packId: "gateron-red",
+    packId: "mx-brown",
     volume: 0.7,
+    playKeyRelease: true,
   };
   private isLoading = false;
 
@@ -31,7 +36,7 @@ export class SoundManager {
         }
       }
     } catch {
-      // Offline or headless test environment fallback
+      // Offline / test environment fallback
     }
   }
 
@@ -70,9 +75,7 @@ export class SoundManager {
       if (!AudioCtx) return;
       this.ctx = new AudioCtx();
       this.masterGain = this.ctx.createGain();
-      this.masterGain.gain.value = this.settings.enabled
-        ? this.settings.volume
-        : 0;
+      this.masterGain.gain.value = this.settings.enabled ? this.settings.volume : 0;
       this.masterGain.connect(this.ctx.destination);
     } catch {
       // AudioContext unavailable
@@ -99,6 +102,9 @@ export class SoundManager {
           }
         }
       }
+      if (group.up && Array.isArray(group.up)) {
+        group.up.forEach((f) => filesToLoad.add(f));
+      }
     }
 
     const loadPromises = Array.from(filesToLoad).map(async (filename) => {
@@ -114,7 +120,7 @@ export class SoundManager {
           this.bufferCache.set(key, audioBuf);
         }
       } catch {
-        // Silently skip corrupted/unavailable sample
+        // Silently skip corrupted sample
       }
     });
 
@@ -132,15 +138,16 @@ export class SoundManager {
       this.ctx.resume().catch(() => {});
     }
 
-    let groupName = "alpha";
     const lowerKey = key.toLowerCase();
+    let groupName = "alpha";
+
     if (lowerKey === " " || lowerKey === "space") {
       groupName = this.currentPack.groups["space"] ? "space" : "alpha";
     } else if (lowerKey === "backspace") {
       groupName = this.currentPack.groups["backspace"] ? "backspace" : "alpha";
     } else if (lowerKey === "enter") {
       groupName = this.currentPack.groups["enter"] ? "enter" : "alpha";
-    } else if (["shift", "control", "alt", "meta"].includes(lowerKey)) {
+    } else if (["shift", "control", "alt", "meta", "tab", "capslock"].includes(lowerKey)) {
       groupName = this.currentPack.groups["modifier"] ? "modifier" : "alpha";
     }
 
@@ -151,7 +158,6 @@ export class SoundManager {
     if (Array.isArray(group.down)) {
       sampleList = group.down;
     } else {
-      // Prioritize medium or hard samples
       const downVariants = group.down as Record<string, string[]>;
       sampleList =
         downVariants["medium"] ||
@@ -163,22 +169,85 @@ export class SoundManager {
 
     if (!sampleList || sampleList.length === 0) return;
 
-    const randomIndex = Math.floor(Math.random() * sampleList.length);
-    const chosenSample = sampleList[randomIndex];
+    // Avoid playing the exact same sample variation consecutively if alternatives exist
+    const lastPlayed = this.lastSamplePlayed[groupName];
+    let chosenSample: string;
+    if (sampleList.length > 1 && lastPlayed) {
+      const alternatives = sampleList.filter((s) => s !== lastPlayed);
+      chosenSample = alternatives[Math.floor(Math.random() * alternatives.length)];
+    } else {
+      chosenSample = sampleList[Math.floor(Math.random() * sampleList.length)];
+    }
+    this.lastSamplePlayed[groupName] = chosenSample;
+
     const cacheKey = `${this.currentPack.id}/${chosenSample}`;
     const buffer = this.bufferCache.get(cacheKey);
-
     if (!buffer) return;
+
+    this.playBuffer(buffer);
+  }
+
+  public playKeyUp(key: string): void {
+    if (!this.settings.enabled || !this.settings.playKeyRelease || this.settings.volume <= 0) {
+      return;
+    }
+    if (!this.ctx || !this.masterGain || !this.currentPack) return;
+
+    const lowerKey = key.toLowerCase();
+    let groupName = "alpha";
+    if (lowerKey === " " || lowerKey === "space") {
+      groupName = this.currentPack.groups["space"] ? "space" : "alpha";
+    } else if (lowerKey === "enter") {
+      groupName = this.currentPack.groups["enter"] ? "enter" : "alpha";
+    }
+
+    const group = this.currentPack.groups[groupName] || this.currentPack.groups["alpha"];
+    if (!group?.up || group.up.length === 0) return;
+
+    const sample = group.up[Math.floor(Math.random() * group.up.length)];
+    const buffer = this.bufferCache.get(`${this.currentPack.id}/${sample}`);
+    if (!buffer) return;
+
+    this.playBuffer(buffer, 0.4); // slightly lower gain for key release
+  }
+
+  private playBuffer(buffer: AudioBuffer, gainScale = 1.0): void {
+    if (!this.ctx || !this.masterGain) return;
+
+    // Voice pooling: limit max concurrent playing voices
+    if (this.activeVoices.length >= this.maxConcurrentVoices) {
+      const oldestVoice = this.activeVoices.shift();
+      try {
+        oldestVoice?.stop();
+        oldestVoice?.disconnect();
+      } catch {
+        // Voice already stopped
+      }
+    }
 
     try {
       const source = this.ctx.createBufferSource();
       source.buffer = buffer;
 
-      // Micro-pitch jitter (±2%) to avoid mechanical repetition
+      // Micro-pitch jitter (±2%) to avoid mechanical machine-gun repetition
       const jitter = 0.98 + Math.random() * 0.04;
       source.playbackRate.setValueAtTime(jitter, this.ctx.currentTime);
 
-      source.connect(this.masterGain);
+      if (gainScale !== 1.0) {
+        const subGain = this.ctx.createGain();
+        subGain.gain.setValueAtTime(gainScale, this.ctx.currentTime);
+        source.connect(subGain);
+        subGain.connect(this.masterGain);
+      } else {
+        source.connect(this.masterGain);
+      }
+
+      source.onended = () => {
+        const idx = this.activeVoices.indexOf(source);
+        if (idx >= 0) this.activeVoices.splice(idx, 1);
+      };
+
+      this.activeVoices.push(source);
       source.start(0);
     } catch {
       // Playback errors must never block or throw

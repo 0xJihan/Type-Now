@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { WordState } from "@/types/typing";
+import { CornerDownLeft } from "lucide-react";
 
 export interface WordDisplayProps {
   words: WordState[];
@@ -9,14 +10,16 @@ export interface WordDisplayProps {
 interface WordItemProps {
   word: WordState;
   isCurrent: boolean;
+  domRef?: React.RefObject<HTMLSpanElement | null>;
 }
 
-const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent }) => {
+const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent, domRef }) => {
   const currentPos = word.typed.length;
 
   return (
     <span
-      className={`inline-flex items-center text-2xl md:text-3xl font-mono leading-relaxed tracking-wide select-none ${
+      ref={domRef as any}
+      className={`inline-flex items-center text-xl md:text-2xl font-mono leading-relaxed tracking-wide select-none ${
         isCurrent ? "relative" : ""
       }`}
     >
@@ -30,12 +33,11 @@ const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent }) => {
           charColor =
             "text-red-600 dark:text-red-500 underline decoration-red-500/80 decoration-2";
         } else if (ch.status === "extra") {
-          charColor =
-            "text-red-700 dark:text-red-400 bg-red-500/10 rounded-xs";
+          charColor = "text-red-700 dark:text-red-400 bg-red-500/10 rounded-xs";
         }
 
         return (
-          <span key={idx} className="relative inline-block">
+          <span key={idx} className="relative inline-block whitespace-pre">
             {isCaretHere && (
               <span className="absolute -left-0.5 top-1 bottom-1 w-0.5 bg-amber-500 dark:bg-amber-400 animate-caret pointer-events-none rounded-full" />
             )}
@@ -51,8 +53,14 @@ const WordItem: React.FC<WordItemProps> = React.memo(({ word, isCurrent }) => {
         </span>
       )}
 
-      {/* Space separator */}
-      <span className="inline-block w-2.5" />
+      {/* Trailing newline indicator or space */}
+      {word.hasNewline ? (
+        <span className="inline-flex items-center ml-1 text-zinc-300 dark:text-zinc-700">
+          <CornerDownLeft className="w-3.5 h-3.5" />
+        </span>
+      ) : (
+        <span className="inline-block w-2.5" />
+      )}
     </span>
   );
 });
@@ -63,15 +71,43 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({
   words,
   currentWordIndex,
 }) => {
+  const activeWordRef = useRef<HTMLSpanElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (activeWordRef.current && containerRef.current) {
+      const container = containerRef.current;
+      const word = activeWordRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const wordRect = word.getBoundingClientRect();
+
+      // If active word falls below visible 60% of container, scroll down smoothly
+      if (wordRect.bottom > containerRect.bottom - 40) {
+        container.scrollTop += wordRect.bottom - containerRect.bottom + 50;
+      } else if (wordRect.top < containerRect.top + 20) {
+        container.scrollTop = Math.max(0, container.scrollTop - 60);
+      }
+    }
+  }, [currentWordIndex]);
+
   return (
-    <div className="flex flex-wrap items-center content-start gap-y-3 w-full max-h-56 overflow-hidden py-4 px-2">
-      {words.map((word, idx) => (
-        <WordItem
-          key={`${idx}_${word.target}`}
-          word={word}
-          isCurrent={idx === currentWordIndex}
-        />
-      ))}
+    <div
+      ref={containerRef}
+      className="flex flex-wrap items-center content-start gap-y-3 w-full max-h-56 overflow-y-auto py-4 px-2 scroll-smooth"
+    >
+      {words.map((word, idx) => {
+        const isCurrent = idx === currentWordIndex;
+        return (
+          <React.Fragment key={`${idx}_${word.target}`}>
+            <WordItem
+              word={word}
+              isCurrent={isCurrent}
+              domRef={isCurrent ? activeWordRef : undefined}
+            />
+            {word.hasNewline && <div className="basis-full h-0" />}
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 };

@@ -1,0 +1,145 @@
+[
+  {
+    "id": "quote-001",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "beginner",
+    "text": "You have power over your mind, not outside events. Realize this, and you will find strength.",
+    "author": "Marcus Aurelius",
+    "source": "Meditations",
+    "license": "Public Domain",
+    "tags": [
+      "stoicism",
+      "philosophy",
+      "short"
+    ]
+  },
+  {
+    "id": "quote-002",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "beginner",
+    "text": "The secret of getting ahead is getting started.",
+    "author": "Mark Twain",
+    "source": "Attributed",
+    "license": "Public Domain",
+    "tags": [
+      "action",
+      "motivation",
+      "short"
+    ]
+  },
+  {
+    "id": "quote-003",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "intermediate",
+    "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+    "author": "Jane Austen",
+    "source": "Pride and Prejudice",
+    "license": "Public Domain",
+    "tags": [
+      "literature",
+      "classic"
+    ]
+  },
+  {
+    "id": "quote-004",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "intermediate",
+    "text": "Beware; for I am fearless, and therefore powerful. I will watch with the wiliness of a snake, that I may sting with its venom.",
+    "author": "Mary Shelley",
+    "source": "Frankenstein",
+    "license": "Public Domain",
+    "tags": [
+      "literature",
+      "gothic"
+    ]
+  },
+  {
+    "id": "quote-005",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "intermediate",
+    "text": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+    "author": "Ralph Waldo Emerson",
+    "source": "Essays",
+    "license": "Public Domain",
+    "tags": [
+      "individuality",
+      "transcendentalism"
+    ]
+  },
+  {
+    "id": "quote-006",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "advanced",
+    "text": "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity.",
+    "author": "Charles Dickens",
+    "source": "A Tale of Two Cities",
+    "license": "Public Domain",
+    "tags": [
+      "literature",
+      "historical",
+      "long"
+    ]
+  },
+  {
+    "id": "quote-007",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "advanced",
+    "text": "All that is gold does not glitter, not all those who wander are lost; the old that is strong does not wither, deep roots are not reached by the frost.",
+    "author": "J.R.R. Tolkien",
+    "source": "The Fellowship of the Ring",
+    "license": "Fair Use / Quotation",
+    "tags": [
+      "poetry",
+      "wisdom"
+    ]
+  },
+  {
+    "id": "quote-008",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "intermediate",
+    "text": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Will Durant",
+    "source": "The Story of Philosophy (summarizing Aristotle)",
+    "license": "Public Domain",
+    "tags": [
+      "philosophy",
+      "habit"
+    ]
+  },
+  {
+    "id": "quote-009",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "beginner",
+    "text": "Simplicity is the soul of efficiency.",
+    "author": "Austin Freeman",
+    "source": "The Eye of Osiris",
+    "license": "Public Domain",
+    "tags": [
+      "design",
+      "efficiency"
+    ]
+  },
+  {
+    "id": "quote-010",
+    "language": "en",
+    "type": "quote",
+    "difficulty": "advanced",
+    "text": "In the depth of winter, I finally learned that within me there lay an invincible summer.",
+    "author": "Albert Camus",
+    "source": "Return to Tipasa",
+    "license": "Fair Use / Quotation",
+    "tags": [
+      "resilience",
+      "existentialism"
+    ]
+  }
+]

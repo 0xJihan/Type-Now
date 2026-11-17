@@ -1,18 +1,31 @@
-# Dataset Provenance: English Frequency Datasets
+# Dataset Provenance: TypeNow Content Engine
 
-## Source
-- **Corpus**: Google Books Ngram 1-gram dataset
-- **Compiler**: Peter Norvig (Director of Research, Google)
-- **Source URL**: https://norvig.com/ngrams/count_1w.txt
-- **License**: Creative Commons Attribution 3.0 Unported (CC-BY 3.0) / Public Domain Google Ngram data
+## 1. English Frequency Datasets (Random Words)
+- **Sources**:
+  - `english-200.json`: Top 200 most common English words.
+  - `english-1000.json`: Top 1000 most common English words.
+  - `english-5000.json`: Top 5000 most common English words.
+  - Sourced from Google Books Ngram 1-gram dataset compiled by Peter Norvig (https://norvig.com/ngrams/count_1w.txt).
+  - License: CC-BY 3.0 / Public Domain.
+  - Sanitization: All lowercase ASCII, strictly alphabetic `^[a-z]+$`, profanity-filtered, deduplicated.
+- **Advanced Vocabulary**:
+  - `english-advanced.json`: 128 curated sophisticated vocabulary words (e.g., *juxtaposition*, *quintessential*, *serendipity*, *idiosyncrasy*).
+  - License: CC0 1.0.
 
-## Curation & Sanitization
-1. **Case Normalization**: Converted all tokens to lowercase ASCII.
-2. **Alphabetical Filtering**: Strict regex `^[a-z]+$` matching only alphabetic characters.
-3. **Single-Character Filter**: Excluded stray single letters, preserving only legitimate single-letter English words ('a', 'i').
-4. **Safety & Profanity Filtering**: Removed explicit profanities and offensive terms.
-5. **Deduplication**: Verified uniqueness of all entries.
+## 2. Sentence Mode
+- **Dataset**: `sentences.json`
+- **Count**: Varied short, medium, and long grammatical sentences.
+- **Difficulty Tiers**: Beginner, Intermediate, Advanced.
+- **Source**: TypeNow Curated English Corpus & Public Domain literature.
+- **License**: CC0 1.0 / Public Domain.
 
-## Tiers
-- `english-200.json`: 200 most common English words, ideal for standard beginner/speed tests.
-- `english-1000.json`: 1000 most common English words, for intermediate vocabulary testing.
+## 3. Quote Mode
+- **Dataset**: `quotes.json`
+- **Count**: Curated quotations from verified historical and literary works (Marcus Aurelius, Mark Twain, Jane Austen, Mary Shelley, Charles Dickens, Ralph Waldo Emerson).
+- **License**: Public Domain (historical literature pre-1928) / Fair Use educational quotation.
+
+## 4. Code Mode
+- **Dataset**: `code-snippets.json`
+- **Languages**: HTML, CSS, JavaScript, TypeScript, Python, Java, Kotlin, Rust.
+- **Formatting**: Syntactically valid, formatted with exact indentation, brackets, semicolons, and operators.
+- **License**: MIT / CC0 1.0 original educational code snippets.

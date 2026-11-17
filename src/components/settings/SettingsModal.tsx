@@ -54,7 +54,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs select-none animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs select-none animate-in fade-in duration-200">
       <div className="relative w-full max-w-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Header */}
         <div className="px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
@@ -99,7 +99,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
                 <Volume2 className="w-4 h-4" />
-                <span>Keyboard Sounds</span>
+                <span>Mechanical Keyboard Audio</span>
               </div>
               <button
                 onClick={() => {
@@ -133,6 +133,21 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               </span>
             </div>
 
+            {/* Key Release Toggle */}
+            <div className="flex items-center justify-between py-1 text-xs">
+              <span className="text-zinc-500">Play key release (up) acoustics</span>
+              <input
+                type="checkbox"
+                checked={preferences.playKeyRelease ?? true}
+                onChange={(e) => {
+                  const playKeyRelease = e.target.checked;
+                  onUpdatePreferences({ playKeyRelease });
+                  soundManager.updateSettings({ playKeyRelease });
+                }}
+                className="accent-amber-500 cursor-pointer w-4 h-4"
+              />
+            </div>
+
             {/* Sound Packs List */}
             <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
               {soundPacks.map((pack) => {
@@ -152,6 +167,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                         <span className="font-medium text-xs text-zinc-900 dark:text-zinc-100">
                           {pack.name}
                         </span>
+                        {pack.id === "mx-brown" && (
+                          <span className="text-[9px] text-amber-600 dark:text-amber-400 px-1 py-0.2 rounded bg-amber-500/10 font-medium">
+                            Default
+                          </span>
+                        )}
                         <span className="text-[10px] text-zinc-400 px-1.5 py-0.2 rounded-sm bg-zinc-100 dark:bg-zinc-800">
                           {pack.kind}
                         </span>
@@ -191,7 +211,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-zinc-500">
-                Test results are stored locally on your device.
+                All records, progress, and achievements are saved locally.
               </span>
 
               {confirmClear ? (

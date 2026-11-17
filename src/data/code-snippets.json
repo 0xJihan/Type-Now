@@ -1,0 +1,225 @@
+[
+  {
+    "id": "code-html-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "html",
+    "text": "<button type=\"submit\" class=\"btn-primary\">\n  <span>Submit Form</span>\n</button>",
+    "source": "Standard HTML5 Component",
+    "license": "MIT",
+    "tags": [
+      "button",
+      "elements"
+    ]
+  },
+  {
+    "id": "code-html-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "html",
+    "text": "<nav aria-label=\"Main Navigation\">\n  <ul class=\"menu-list\">\n    <li><a href=\"#home\">Home</a></li>\n    <li><a href=\"#about\">About</a></li>\n  </ul>\n</nav>",
+    "source": "Semantic Navigation Markup",
+    "license": "MIT",
+    "tags": [
+      "nav",
+      "accessibility"
+    ]
+  },
+  {
+    "id": "code-css-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "css",
+    "text": ".container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 1rem;\n}",
+    "source": "Modern Flexbox Layout",
+    "license": "MIT",
+    "tags": [
+      "flexbox",
+      "layout"
+    ]
+  },
+  {
+    "id": "code-css-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "css",
+    "text": "@media (prefers-color-scheme: dark) {\n  :root {\n    --bg-primary: #121214;\n    --text-primary: #f4f4f5;\n  }\n}",
+    "source": "Dark Mode Media Query",
+    "license": "MIT",
+    "tags": [
+      "theme",
+      "media-query"
+    ]
+  },
+  {
+    "id": "code-js-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "javascript",
+    "text": "const doubled = numbers.map(n => n * 2);\nconst evens = doubled.filter(n => n % 2 === 0);",
+    "source": "Array Transformations",
+    "license": "MIT",
+    "tags": [
+      "array",
+      "functional"
+    ]
+  },
+  {
+    "id": "code-js-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "javascript",
+    "text": "async function fetchData(url) {\n  const response = await fetch(url);\n  if (!response.ok) throw new Error(\"Network error\");\n  return response.json();\n}",
+    "source": "Async Fetch Helper",
+    "license": "MIT",
+    "tags": [
+      "async",
+      "fetch"
+    ]
+  },
+  {
+    "id": "code-ts-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "typescript",
+    "text": "interface User {\n  readonly id: string;\n  name: string;\n  email: string;\n  isActive: boolean;\n}",
+    "source": "TypeScript Model",
+    "license": "MIT",
+    "tags": [
+      "interface",
+      "types"
+    ]
+  },
+  {
+    "id": "code-ts-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "typescript",
+    "text": "type Result<T, E = Error> = \n  | { ok: true; value: T }\n  | { ok: false; error: E };",
+    "source": "Result Type Pattern",
+    "license": "MIT",
+    "tags": [
+      "generics",
+      "union"
+    ]
+  },
+  {
+    "id": "code-py-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "python",
+    "text": "def calculate_wpm(characters: int, seconds: float) -> float:\n    if seconds <= 0:\n        return 0.0\n    return (characters / 5.0) / (seconds / 60.0)",
+    "source": "Typing Calculations in Python",
+    "license": "MIT",
+    "tags": [
+      "functions",
+      "math"
+    ]
+  },
+  {
+    "id": "code-py-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "python",
+    "text": "with open(\"data.json\", \"r\", encoding=\"utf-8\") as file:\n    payload = json.load(file)\n    records = [r for r in payload if r.get(\"valid\")]",
+    "source": "File Context & List Comprehension",
+    "license": "MIT",
+    "tags": [
+      "file-io",
+      "comprehension"
+    ]
+  },
+  {
+    "id": "code-java-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "java",
+    "text": "public class UserProfile {\n    private final String username;\n    public UserProfile(String username) {\n        this.username = username;\n    }\n}",
+    "source": "Java Class POJO",
+    "license": "MIT",
+    "tags": [
+      "oop",
+      "class"
+    ]
+  },
+  {
+    "id": "code-java-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "java",
+    "text": "List<String> names = users.stream()\n    .filter(User::isActive)\n    .map(User::getName)\n    .collect(Collectors.toList());",
+    "source": "Java Stream API",
+    "license": "MIT",
+    "tags": [
+      "streams",
+      "functional"
+    ]
+  },
+  {
+    "id": "code-kotlin-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "kotlin",
+    "text": "data class TestResult(\n    val wpm: Double,\n    val accuracy: Double,\n    val timestamp: Long = System.currentTimeMillis()\n)",
+    "source": "Kotlin Data Class",
+    "license": "MIT",
+    "tags": [
+      "data-class"
+    ]
+  },
+  {
+    "id": "code-kotlin-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "kotlin",
+    "text": "suspend fun fetchSettings(): Result<Settings> = withContext(Dispatchers.IO) {\n    runCatching { repository.loadSettings() }\n}",
+    "source": "Kotlin Coroutines & Flow",
+    "license": "MIT",
+    "tags": [
+      "coroutines",
+      "concurrency"
+    ]
+  },
+  {
+    "id": "code-rust-01",
+    "language": "en",
+    "type": "code",
+    "difficulty": "beginner",
+    "codeLanguage": "rust",
+    "text": "pub fn calculate_accuracy(correct: usize, total: usize) -> f64 {\n    if total == 0 { return 100.0; }\n    (correct as f64 / total as f64) * 100.0\n}",
+    "source": "Rust Function",
+    "license": "MIT",
+    "tags": [
+      "functions",
+      "math"
+    ]
+  },
+  {
+    "id": "code-rust-02",
+    "language": "en",
+    "type": "code",
+    "difficulty": "intermediate",
+    "codeLanguage": "rust",
+    "text": "match conn.execute(\"INSERT INTO logs VALUES (?1)\", params![entry]) {\n    Ok(_) => println!(\"Saved successfully\"),\n    Err(e) => eprintln!(\"Database error: {}\", e),\n}",
+    "source": "Rust Match & Rusqlite Query",
+    "license": "MIT",
+    "tags": [
+      "pattern-matching",
+      "sqlite"
+    ]
+  }
+]

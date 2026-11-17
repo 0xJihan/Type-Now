@@ -5,6 +5,9 @@ import { LiveMetricsBar } from "./components/typing/LiveMetricsBar";
 import { TypingArea } from "./components/typing/TypingArea";
 import { ResultsView } from "./components/results/ResultsView";
 import { SettingsModal } from "./components/settings/SettingsModal";
+import { AcademyView } from "./components/academy/AcademyView";
+import { StatsDashboard } from "./components/stats/StatsDashboard";
+import { ChallengesView } from "./components/challenges/ChallengesView";
 import { TypingEngine } from "./domain/typing-engine";
 import { soundManager } from "./audio/sound-manager";
 import {
@@ -17,11 +20,19 @@ import {
 import { DEFAULT_PREFERENCES, UserPreferences } from "./types/preferences";
 import {
   clearTestHistory,
+  getLessonProgress,
   getPreferences,
+  getTestHistory,
+  recordCharacterErrors,
+  recordContentUsage,
+  saveChallengeCompletion,
   savePreferences,
   saveTestResult,
 } from "./persistence/db-bridge";
-import { BookOpen, BarChart3, Trophy, RotateCcw } from "lucide-react";
+import { ChallengeEngine, getTodayDateString } from "./domain/challenge-engine";
+import { AchievementEngine, ACHIEVEMENTS } from "./domain/achievement-engine";
+import { DailyChallenge } from "./types/challenges";
+import { RotateCcw, Trophy, X } from "lucide-react";
 import { Button } from "./components/ui/Button";
 
 export default function App() {
@@ -58,6 +69,9 @@ export default function App() {
     null
   );
 
+  // Achievement unlock notifications
+  const [unlockedNotification, setUnlockedNotification] = useState<string | null>(null);
+
   // Apply theme class to document
   const applyTheme = (theme: "dark" | "light" | "system") => {
     const root = document.documentElement;
@@ -82,6 +96,7 @@ export default function App() {
         enabled: loadedPrefs.soundEnabled,
         volume: loadedPrefs.soundVolume,
         packId: loadedPrefs.soundPack,
+        playKeyRelease: loadedPrefs.playKeyRelease ?? true,
       });
       setConfig((prev) => ({
         ...prev,
@@ -109,9 +124,55 @@ export default function App() {
         setWords([...engine.getWords()]);
         setCurrentWordIndex(engine.getCurrentWordIndex());
       },
-      onComplete: (result) => {
+      onComplete: async (result, characterErrors) => {
         setLatestResult(result);
-        saveTestResult(result).catch(() => {});
+
+        // 1. Persist result
+        await saveTestResult(result).catch(() => {});
+
+        // 2. Persist content usage
+        if (config.contentId) {
+          await recordContentUsage(config.contentId, config.mode).catch(() => {});
+        }
+
+        // 3. Record character errors for analytics
+        if (characterErrors && characterErrors.length > 0) {
+          await recordCharacterErrors(characterErrors).catch(() => {});
+        }
+
+        // 4. Validate daily challenges
+        const todayStr = getTodayDateString();
+        const dailyChallenges = ChallengeEngine.getDailyChallenges(todayStr);
+        let completedAnyChallenge = false;
+        for (const ch of dailyChallenges) {
+          if (ChallengeEngine.isQualified(ch, result)) {
+            await saveChallengeCompletion({
+              date: todayStr,
+              challenge_id: ch.id,
+              completed_at: Date.now(),
+              wpm: result.netWpm,
+              accuracy: result.accuracy,
+            }).catch(() => {});
+            completedAnyChallenge = true;
+          }
+        }
+
+        // 5. Evaluate achievements
+        const history = await getTestHistory(100, 0);
+        const lessons = await getLessonProgress();
+        const newlyUnlocked = await AchievementEngine.evaluate(
+          history,
+          lessons,
+          completedAnyChallenge ? 1 : 0
+        );
+
+        if (newlyUnlocked.length > 0) {
+          const ach = ACHIEVEMENTS.find((a) => a.id === newlyUnlocked[0]);
+          if (ach) {
+            setUnlockedNotification(ach.title);
+            setTimeout(() => setUnlockedNotification(null), 5000);
+          }
+        }
       },
     });
 
@@ -169,6 +230,20 @@ export default function App() {
     soundManager.updateSettings({ enabled: nextEnabled });
   };
 
+  const handleStartChallenge = (challenge: DailyChallenge) => {
+    setActiveTab("home");
+    setLatestResult(null);
+    startTransition(() => {
+      setConfig({
+        mode: challenge.mode,
+        modeValue: challenge.modeValue,
+        vocabulary: "top200",
+        language: "en",
+        difficulty: "intermediate",
+      });
+    });
+  };
+
   return (
     <div className="min-h-screen bg-(--bg-primary) text-(--text-primary) flex flex-col antialiased selection:bg-amber-500/20">
       {/* Shell Header */}
@@ -182,8 +257,24 @@ export default function App() {
         onOpenSettings={() => setIsSettingsOpen(true)}
       />
 
+      {/* Achievement Banner Notification */}
+      {unlockedNotification && (
+        <div className="fixed top-16 right-6 z-50 flex items-center gap-3 p-3.5 rounded-xl bg-amber-500 text-zinc-950 shadow-lg border border-amber-400 font-medium text-xs select-none animate-in slide-in-from-top-2 duration-300">
+          <Trophy className="w-4 h-4 shrink-0" />
+          <span>
+            Achievement Unlocked: <strong>{unlockedNotification}</strong>
+          </span>
+          <button
+            onClick={() => setUnlockedNotification(null)}
+            className="p-1 hover:opacity-75"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
+
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 max-w-5xl w-full mx-auto">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-6 max-w-5xl w-full mx-auto">
         {activeTab === "home" && (
           <div className="w-full flex flex-col items-center gap-8">
             {status !== "completed" ? (
@@ -247,35 +338,15 @@ export default function App() {
           </div>
         )}
 
-        {/* Informational Placeholders for Future Phases */}
-        {activeTab === "learn" && (
-          <div className="max-w-md text-center space-y-4 p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40">
-            <BookOpen className="w-10 h-10 text-amber-500 mx-auto" />
-            <h2 className="text-lg font-semibold">Structured Lessons</h2>
-            <p className="text-sm text-zinc-500">
-              The typing tutor with finger placement diagrams, muscle memory exercises, and mastery levels is scheduled for Phase 3.
-            </p>
-          </div>
-        )}
+        {/* Phase 5: Typing Academy */}
+        {activeTab === "learn" && <AcademyView />}
 
-        {activeTab === "statistics" && (
-          <div className="max-w-md text-center space-y-4 p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40">
-            <BarChart3 className="w-10 h-10 text-amber-500 mx-auto" />
-            <h2 className="text-lg font-semibold">Analytics & Heatmaps</h2>
-            <p className="text-sm text-zinc-500">
-              In-depth performance analytics, speed curves, key-accuracy heatmaps, and historical charts are scheduled for Phase 4.
-            </p>
-          </div>
-        )}
+        {/* Phase 6: Statistics Dashboard */}
+        {activeTab === "statistics" && <StatsDashboard />}
 
+        {/* Phase 6: Challenges & Achievements */}
         {activeTab === "challenges" && (
-          <div className="max-w-md text-center space-y-4 p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40">
-            <Trophy className="w-10 h-10 text-amber-500 mx-auto" />
-            <h2 className="text-lg font-semibold">Challenges & Badges</h2>
-            <p className="text-sm text-zinc-500">
-              Custom sprint challenges, daily streaks, accuracy trials, and achievements are scheduled for Phase 5.
-            </p>
-          </div>
+          <ChallengesView onStartChallenge={handleStartChallenge} />
         )}
       </main>
 

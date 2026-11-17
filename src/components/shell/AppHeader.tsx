@@ -30,9 +30,9 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
 }) => {
   const navItems = [
     { id: "home", label: "Home" },
-    { id: "learn", label: "Learn", badge: "Phase 3" },
-    { id: "statistics", label: "Statistics", badge: "Phase 4" },
-    { id: "challenges", label: "Challenges", badge: "Phase 5" },
+    { id: "learn", label: "Academy" },
+    { id: "statistics", label: "Statistics" },
+    { id: "challenges", label: "Challenges" },
   ];
 
   return (
@@ -55,26 +55,17 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
         <nav className="flex items-center gap-1">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
-            const isClickable = item.id === "home";
             return (
               <button
                 key={item.id}
-                disabled={!isClickable}
-                onClick={() => isClickable && onSelectTab(item.id)}
-                className={`relative px-3 py-1.5 rounded-md text-sm font-medium transition-colors flex items-center gap-1.5 ${
+                onClick={() => onSelectTab(item.id)}
+                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                   isActive
-                    ? "text-zinc-950 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800/80"
-                    : isClickable
-                    ? "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
-                    : "text-zinc-400 dark:text-zinc-600 cursor-not-allowed opacity-75"
+                    ? "text-zinc-950 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800/80 font-semibold"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
                 }`}
               >
                 {item.label}
-                {item.badge && (
-                  <span className="text-[10px] font-normal uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-zinc-200/60 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-400">
-                    {item.badge}
-                  </span>
-                )}
               </button>
             );
           })}

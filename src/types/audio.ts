@@ -18,4 +18,5 @@ export interface AudioSettings {
   enabled: boolean;
   packId: string;
   volume: number; // 0.0 - 1.0
+  playKeyRelease?: boolean;
 }

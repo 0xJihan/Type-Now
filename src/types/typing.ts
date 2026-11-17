@@ -1,6 +1,6 @@
 export type TestStatus = "idle" | "ready" | "running" | "completed" | "cancelled";
 
-export type TestMode = "time" | "words";
+export type TestMode = "time" | "words" | "sentence" | "quote" | "code" | "custom";
 
 export type CharacterStatus = "pending" | "correct" | "incorrect" | "extra";
 
@@ -14,6 +14,7 @@ export interface WordState {
   typed: string;
   characters: CharacterState[];
   isCompleted: boolean;
+  hasNewline?: boolean;
 }
 
 export interface TestMetrics {
@@ -28,10 +29,16 @@ export interface TestMetrics {
 
 export interface TestConfig {
   mode: TestMode;
-  modeValue: number; // e.g. 15, 30, 60, 120 or 10, 25, 50, 100
-  vocabulary: "top200" | "top1000";
+  modeValue: number;
+  vocabulary: "top200" | "top1000" | "top5000" | "advanced";
   language: string;
   seed?: string;
+  difficulty?: "beginner" | "intermediate" | "advanced";
+  codeLanguage?: string;
+  customText?: string;
+  contentId?: string;
+  author?: string;
+  source?: string;
 }
 
 export interface TestResultRecord {
