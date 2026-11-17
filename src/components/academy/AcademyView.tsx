@@ -65,6 +65,7 @@ export const AcademyView: React.FC = () => {
     const text = lesson.exercises[idx] || lesson.exercises[0];
     const parsedWords = TypingEngine.parseTextIntoWords(text);
 
+    let engineInstance: TypingEngine | null = null;
     const newEngine = new TypingEngine(
       {
         mode: "custom",
@@ -75,12 +76,21 @@ export const AcademyView: React.FC = () => {
       },
       {
         onTick: () => {
-          setWords([...newEngine.getWords()]);
-          setCurrentWordIndex(newEngine.getCurrentWordIndex());
+          if (engineInstance) {
+            setWords([...engineInstance.getWords()]);
+            setCurrentWordIndex(engineInstance.getCurrentWordIndex());
+          }
         },
-        onStateChange: () => {
-          setWords([...newEngine.getWords()]);
-          setCurrentWordIndex(newEngine.getCurrentWordIndex());
+        onStateChange: (_status, eng) => {
+          const target = eng || engineInstance;
+          if (target) {
+            setWords([...target.getWords()]);
+            setCurrentWordIndex(target.getCurrentWordIndex());
+          }
+        },
+        onKeystroke: (updatedWords, curIdx) => {
+          setWords([...updatedWords]);
+          setCurrentWordIndex(curIdx);
         },
         onComplete: async (result) => {
           const passed =
@@ -117,6 +127,7 @@ export const AcademyView: React.FC = () => {
       }
     );
 
+    engineInstance = newEngine;
     setEngine(newEngine);
     setWords(newEngine.getWords());
     setCurrentWordIndex(0);

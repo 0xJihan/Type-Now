@@ -112,17 +112,29 @@ export default function App() {
 
   // Initialize typing engine
   useEffect(() => {
+    let currentEngine: TypingEngine | null = null;
+
     const engine = new TypingEngine(config, {
       onTick: (newMetrics, remainingOrElapsed) => {
         setMetrics(newMetrics);
         setTimeDisplay(remainingOrElapsed);
-        setWords([...engine.getWords()]);
-        setCurrentWordIndex(engine.getCurrentWordIndex());
+        const eng = currentEngine || engineRef.current;
+        if (eng) {
+          setWords([...eng.getWords()]);
+          setCurrentWordIndex(eng.getCurrentWordIndex());
+        }
       },
-      onStateChange: (newStatus) => {
+      onStateChange: (newStatus, eng) => {
         setStatus(newStatus);
-        setWords([...engine.getWords()]);
-        setCurrentWordIndex(engine.getCurrentWordIndex());
+        const target = eng || currentEngine || engineRef.current;
+        if (target) {
+          setWords([...target.getWords()]);
+          setCurrentWordIndex(target.getCurrentWordIndex());
+        }
+      },
+      onKeystroke: (updatedWords, idx) => {
+        setWords([...updatedWords]);
+        setCurrentWordIndex(idx);
       },
       onComplete: async (result, characterErrors) => {
         setLatestResult(result);
@@ -176,6 +188,7 @@ export default function App() {
       },
     });
 
+    currentEngine = engine;
     engineRef.current = engine;
     setWords(engine.getWords());
     setCurrentWordIndex(0);

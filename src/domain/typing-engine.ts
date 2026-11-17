@@ -14,7 +14,8 @@ import { contentSelector } from "./content-selector";
 export interface EngineCallbacks {
   onTick?: (metrics: TestMetrics, remainingOrElapsed: number) => void;
   onComplete?: (result: TestResultRecord, characterErrors: CharacterErrorRecord[]) => void;
-  onStateChange?: (status: TestStatus) => void;
+  onStateChange?: (status: TestStatus, engine: TypingEngine) => void;
+  onKeystroke?: (words: WordState[], currentWordIndex: number) => void;
 }
 
 export class TypingEngine {
@@ -155,7 +156,7 @@ export class TypingEngine {
 
   private setStatus(status: TestStatus): void {
     this.status = status;
-    this.callbacks.onStateChange?.(status);
+    this.callbacks.onStateChange?.(status, this);
   }
 
   private buildWordState(target: string, typed: string, hasNewline = false): WordState {
@@ -294,6 +295,7 @@ export class TypingEngine {
           currentWord.hasNewline
         );
       }
+      this.callbacks.onKeystroke?.(this.words, this.currentWordIndex);
       return;
     }
 
@@ -310,6 +312,8 @@ export class TypingEngine {
 
       currentWord.isCompleted = true;
       this.currentWordIndex++;
+
+      this.callbacks.onKeystroke?.(this.words, this.currentWordIndex);
 
       // Non-time modes complete when all words are typed
       if (
@@ -348,6 +352,8 @@ export class TypingEngine {
         newTyped,
         currentWord.hasNewline
       );
+
+      this.callbacks.onKeystroke?.(this.words, this.currentWordIndex);
 
       // Auto-complete in non-time modes if last word is typed and matches
       if (
