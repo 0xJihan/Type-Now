@@ -150,7 +150,8 @@ Pre-built binaries can be downloaded directly from the [**Releases folder**](rel
 |---|---|---|
 | **macOS (Apple Silicon)** | `.dmg` installer | [`TypeNow_0.1.0_aarch64.dmg`](releases/TypeNow_0.1.0_aarch64.dmg) |
 | **macOS (Apple Silicon)** | `.zip` portable app | [`TypeNow_0.1.0_macOS_aarch64.zip`](releases/TypeNow_0.1.0_macOS_aarch64.zip) |
-| **Windows (x64)** | `.msi` / `.exe` installer | [GitHub Releases](https://github.com/0xJihan/TypeNow/releases/latest) |
+| **Windows (x64)** | `.exe` setup installer | [`TypeNow_0.1.0_x64-setup.exe`](releases/TypeNow_0.1.0_x64-setup.exe) |
+| **Windows (x64)** | `.zip` standalone portable | [`TypeNow_0.1.0_x64_portable.zip`](releases/TypeNow_0.1.0_x64_portable.zip) |
 | **Linux (x64)** | `.AppImage` / `.deb` | [GitHub Releases](https://github.com/0xJihan/TypeNow/releases/latest) |
 
 ---
@@ -203,9 +204,14 @@ open /Applications/TypeNow.app
 
 ### Windows installation
 
-1. Download the `.msi` installer or setup executable from [Releases](https://github.com/0xJihan/TypeNow/releases/latest).
-2. Run the installer and follow the on-screen steps.
+#### Option A: Setup Installer (.exe)
+1. Download [`TypeNow_0.1.0_x64-setup.exe`](releases/TypeNow_0.1.0_x64-setup.exe).
+2. Double-click the installer and follow the setup wizard (creates Desktop and Start Menu shortcuts).
 3. If Windows SmartScreen displays *“Windows protected your PC”*, click **More info** and select **Run anyway**.
+
+#### Option B: Standalone Portable (.zip)
+1. Download [`TypeNow_0.1.0_x64_portable.zip`](releases/TypeNow_0.1.0_x64_portable.zip).
+2. Extract the archive to any folder and double-click `TypeNow.exe`. No installation required.
 
 ---
 
