@@ -245,6 +245,26 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               )}
             </div>
           </section>
+
+          {/* About TypeNow Section */}
+          <section className="pt-2 border-t border-border flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/logo.png"
+                alt="TypeNow logo"
+                className="w-7 h-7 rounded-md object-contain border border-border"
+              />
+              <div>
+                <div className="text-xs font-semibold text-text-primary">
+                  TypeNow <span className="font-normal text-text-muted">v0.1.0</span>
+                </div>
+                <div className="text-[11px] text-text-muted">
+                  Offline-first desktop typing tutor & speed lab
+                </div>
+              </div>
+            </div>
+            <span className="text-[11px] font-mono text-text-muted">MIT</span>
+          </section>
         </div>
 
         {/* Footer */}

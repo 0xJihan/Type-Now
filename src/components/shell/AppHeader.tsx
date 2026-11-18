@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Keyboard,
   Volume2,
   VolumeX,
   Sun,
@@ -43,9 +42,11 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           className="flex items-center gap-2.5 cursor-pointer"
           onClick={() => onSelectTab("home")}
         >
-          <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center font-bold">
-            <Keyboard className="w-4 h-4 lg:w-4.5 lg:h-4.5" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="TypeNow logo"
+            className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg object-contain shadow-2xs border border-border"
+          />
           <span className="font-semibold text-text-primary tracking-tight text-base lg:text-lg">
             TypeNow
           </span>
